@@ -1,0 +1,3 @@
+# The Beautiful Game {.unnumbered}
+
+This is my journey of playing FPL with 0 ball knowledge and a bit of Python knowledge.
