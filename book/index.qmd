@@ -1,5 +1,3 @@
-# Preface {.unnumbered}
+# The Beautiful Game {.unnumbered}
 
-This is a Quarto book.
-
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+This is my journey of playing FPL with 0 ball knowledge and a bit of Python knowledge.

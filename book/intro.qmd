@@ -1,5 +1,29 @@
-# Introduction
+# Preseason
 
-This is a book created from markdown and executable code.
+## The Goal
+The purpose of this project is to see how well I can perform using a systematic set of trading rules based on historical data, rather than any knowledge or experience of football
 
-See @knuth84 for additional discussion of literate programming.
+## The Goalposts
+What does "performing well" mean? The most natural measure of performance is percentile rank among all FPL players, but that doesn't have an objective benchmark. Is 50% good? 33%? 
+
+Perhaps the most objective measure of my performance is the difference between my final point score and the score I would have ended on if I had made no transfers throughout the season. This will evaluate the quality of my transfer decisions, but not of my initial choice of squad. I think I am happy with this, because I expect my initial squad to be far from both the best and worst initial squad. 
+
+Since my evaluation method is essentially controlling for the initial squad choice, once the season is over I might be able to work out how well my initial squad would have done with 0 transfers, compared to all the other possibilities.
+
+## Relegation zone
+So, that leaves me with a baseline target of ensuring my final points is higher than the points my initial squad would have ended up on. With 37 transfers
+
+## Promotion zone
+A target that feels certainly ambitious and objective (although, impossible to gauge if at all realistic) target might be to end on more than double the points that my initial squad would have
+
+## Safe zone
+Ending up in the Relegation Zone will be an embarrassing but fun story to tell. Ending up in the Promotion Zone will be an even more fun story to tell. If both elude me, then at least I will have the code for my CV.
+
+## Formation
+How should I choose when to buy, sell, and hold players? And on the basis of what data? I will be using moving averages to make my decisions. I will aim to buy players who are perform well over the last 3 weeks, and vice versa for selling. I will not waste my transfers transacting on averagely performing players, meaning I might not buy good players who are not good enough, and might not sell (i.e. will hold) players who are not (yet) performing badly enough. 
+
+## Financial fairplay
+I will only be using data available from the official FPL API. More specifically, I'll only be using data pertaining to players' points scored in the current and past two seasons. I will not make any decisions based on qualitative or other quantitative data I receive in any form or via any means, external to the API. Secondarily, this means I am not "cheating". Primarily, this is because I have no reason to believe I'll be able to employ this information better than that from the API.
+
+## Pitch limits
+Currently undecided if I want to use chips. I think if I do, I will resign myself to using them the week before they expire, or not at all, on the basis that if I am going to use them, I should use them when I have the most information to hand. But, I don't think I'll use them, because it'll make it very difficult to compare my performance with my initial squad's. I would have to work out how I would have used them, had I kept my initial squad, which feels like a lot of work.

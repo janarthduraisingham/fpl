@@ -2,9 +2,9 @@ project:
   type: book
 
 book:
-  title: "book"
-  author: "Norah Jones"
-  date: "07/09/2026"
+  title: "Fantasy Premier League"
+  author: "Janarth Duraisingham"
+  #date: "07/09/2026"
   chapters:
     - index.qmd
     - intro.qmd
