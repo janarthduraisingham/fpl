@@ -227,3 +227,6 @@ __marimo__/
 *.html
 *.pdf
 *.json
+
+# Other
+_environment
