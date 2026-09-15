@@ -1,8 +1,17 @@
-import requests, json
+from dataloader import dataloader
 from pprint import pprint
 import pandas as pd
 import matplotlib.pyplot as plt
 
+def underpriced():
+
+    dataloader()
+
+    return("underpriced_complete")
+
+
+
+'''
 pd.set_option('display.max_columns', None)
 
 base_url = 'https://fantasy.premierleague.com/api/'
@@ -108,3 +117,6 @@ df.sort_values(
          'points_per_cost_2yr']
     ].to_csv(
         "output/underpriced.csv")
+        
+
+'''
