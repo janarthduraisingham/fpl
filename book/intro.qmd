@@ -1,4 +1,4 @@
-# Preseason
+# Preseason {.unnumbered}
 
 ## The Goal
 The purpose of this project is to see how well I can perform using a systematic set of trading rules based on historical data, rather than any knowledge or experience of football

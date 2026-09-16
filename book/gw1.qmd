@@ -1,0 +1,9 @@
+# Gameweek 1 - The Initial Squad {.unnumbered}
+
+```{python}
+#| echo: false
+
+from fpl.underpriced_players import underpriced
+
+underpriced()
+```

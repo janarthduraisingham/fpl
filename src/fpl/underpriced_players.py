@@ -1,34 +1,32 @@
-from dataloader import dataloader
 from pprint import pprint
 import pandas as pd
 import matplotlib.pyplot as plt
+import requests, json
+from pyprojroot import here
 
 def underpriced():
-
-    dataloader()
-
-    return("underpriced_complete")
+    print("underpriced analysis commencing")
 
 
 
+
+    #pd.set_option('display.max_columns', None)
+    '''
+    base_url = 'https://fantasy.premierleague.com/api/'
+    #r = requests.get(base_url + 'bootstrap-static/').json()
+    #pprint(r, indent=2, depth=1, compact=True)
+    '''
+    #with open('bootstrap-static.json', 'w') as f:
+    #    json.dump(r, f)
+
+    with open(here('bootstrap-static.json')) as f:
+        r = json.load(f)
+
+    players = pd.json_normalize(r['elements']).rename(
+        columns={'id':'PID'}
+    )
+    pprint(players[['PID', 'web_name', 'team', 'element_type']])
 '''
-pd.set_option('display.max_columns', None)
-
-base_url = 'https://fantasy.premierleague.com/api/'
-#r = requests.get(base_url + 'bootstrap-static/').json()
-#pprint(r, indent=2, depth=1, compact=True)
-
-#with open('bootstrap-static.json', 'w') as f:
-#    json.dump(r, f)
-
-with open('bootstrap-static.json') as f:
-    r = json.load(f)
-
-players = pd.json_normalize(r['elements']).rename(
-    columns={'id':'PID'}
-)
-#pprint(players[['PID', 'web_name', 'team', 'element_type']])
-
 #print(players.columns)
 
 teams = pd.json_normalize(r['teams'])
