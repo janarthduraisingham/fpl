@@ -2,14 +2,14 @@ project:
   type: book
 
 book:
-  title: "Fantasy Premier Cheese"
+  title: "Fantasy Premier League"
   #author: "Janarth Duraisingham"
   #date: "07/09/2026"
   chapters:
     - index.qmd
     - intro.qmd
     - gw1.qmd
-    - references.qmd
+    #- references.qmd
 
 bibliography: references.bib
 

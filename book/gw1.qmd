@@ -1,9 +1,137 @@
-# Gameweek 1 - The Initial Squad {.unnumbered}
+# GW 1 - The Initial Squad {.unnumbered}
+
+With 0 ball knowledge, all I can go off when picking my initial squad is how well they performed last season, and perhaps the season before.
+
+
+## Sample FPL API Data
+First, a look at the data we have available from the FPL API.
+
+### Players
+```{python}
+#| echo: false
+import pandas as pd
+pd.set_option('display.max_seq_items', None)
+from fpl.player_data import *
+
+players().columns
+players()[['PID',
+'first_name',
+'second_name',
+'now_cost']].sort_values(['second_name']).head(10)
+```
+
+
+### Teams
+
+```{python}
+#| echo: false
+teams()[['name', 'played', 'points', 'position']].head(10)
+```
+
+### Positions
+
+```{python}
+#| echo: false
+positions()[['singular_name', 'squad_max_play']].head(10)
+```
+
+### Combined data
+We'll need to combine this data to make use of it, and also declutter what I won't be using. To keep things simple, I'll only be using historical points scored to decide how to change my squad.
+
+```{python}
+#| echo: false
+player_points()[['PID', 'first_name', 'second_name', 'team_name', 'position_name', 'now_cost', 'total_points']].sort_values(['total_points'], ascending=False).head(20)
+```
+
+## Prior Season Data
+
+The 'total_points' column will update each week. What I need for my initial squad selection are players' total points from the last 2 seasons.
 
 ```{python}
 #| echo: false
 
-from fpl.underpriced_players import underpriced
-
-underpriced()
+last_2_years_points().head(20)
 ```
+
+## The Initial Squad
+Before I choose which players I want, how do I choose how many of each position I want, subject to the maximum constraints? I'll decide based on the average points scored for each position, over the last season:
+
+```{python}
+#| echo: false
+df = last_1_years_points()
+df = df[df['points_2yr']>0]
+gk_avg = df[df['position_name']=='Goalkeeper']['points_2yr'].mean()
+def_avg = df[df['position_name']=='Defender']['points_2yr'].mean()
+mid_avg = df[df['position_name']=='Midfielder']['points_2yr'].mean()
+fwd_avg = df[df['position_name']=='Forward']['points_2yr'].mean()
+
+
+print("Mean Goalkeeper Points over last season: " + str(round(gk_avg)))
+print("Mean Defender Points over last season: " + str(round(def_avg)))
+print("Mean Midfielder Points over last season: " + str(round(mid_avg)))
+print("Mean Forward Points over last season: " + str(round(fwd_avg)))
+
+gk_avg = df[df['position_name']=='Goalkeeper']['now_cost'].mean()
+def_avg = df[df['position_name']=='Defender']['now_cost'].mean()
+mid_avg = df[df['position_name']=='Midfielder']['now_cost'].mean()
+fwd_avg = df[df['position_name']=='Forward']['now_cost'].mean()
+
+
+print("Mean Goalkeeper cost: " + str(round(gk_avg/10, ndigits=1)))
+print("Mean Defender cost: " + str(round(def_avg/10, ndigits=1)))
+print("Mean Midfielder cost: " + str(round(mid_avg/10, ndigits=1)))
+print("Mean Forward cost: " + str(round(fwd_avg/10, ndigits=1)))
+
+```
+ So, very crudely, Defenders are a bit more lucrative than other positions, and the opposite for Forwards. So I'll pick two Goalkeeprs, then as many Defenders as I can, then as many Midfielders as I can, and then as few Forwards as I can. Perhaps this formation will change as the season progresses, depending on whether relative points/cost changes between different positions. I also will use as a tiebreaker a preference to add players from teams not already in my squad, to hopefully reduce the variance of my weekly points.
+
+Below, we'll order players by the ratio of their points over the last two seasons, divided by their current cost. I'll then select for my initial squad players with a high ratio and a low cost.The idea is that I'm happy to buy underpriced players who score fewer points, so that I have the flexibility later in the season to use current season data to make transfers. Currently, I'm picking based on prior season performance, which it feels fair to assume is uniformly a worse indicator for future performance than current season data.
+
+ As we only have current cost, which is a dynamic field, the tables below are likely to show different players than the ones I chose at the time of writing. But, the logic is the same. 
+
+### Goalkeepers
+```{python}
+#| echo: false
+
+df = last_2_years_points()
+df = df[df['position_name']=='Goalkeeper'].sort_values(['points_per_cost_2yr'], ascending=False)
+df.head(10)
+```
+
+I choose Verbruggen and Leno
+
+### Defenders
+```{python}
+#| echo: false
+
+df = last_2_years_points()
+df = df[df['position_name']=='Defender'].sort_values(['points_per_cost_2yr'], ascending=False)
+df.head(20)
+```
+
+I choose Mitchell, Guehi, Van Hecke, Tarkowski, and N.Williams
+
+### Midfielders
+```{python}
+#| echo: false
+
+df = last_2_years_points()
+df = df[df['position_name']=='Midfielder'].sort_values(['points_per_cost_2yr'], ascending=False)
+df.head(20)
+```
+
+I choose Szoboszlai, Rice, Anderson, Iwobi, and Damsgaard
+
+### Forwards
+```{python}
+#| echo: false
+
+df = last_2_years_points()
+df = df[df['position_name']=='Forward'].sort_values(['points_per_cost_2yr'], ascending=False)
+df.head(20)
+```
+
+I choose Calvert-Lewin, Mateta, and Welbeck
+
+## Leftover Capital
+This leaves me with £14m to play with. If I make 38 transfers over the season, I can average a net cost of ~£0.5m per transfer. The idea is that every transfer I make will use some capital to improve my team made from old data, on the basis of new data (current season data). I expect my initial squad to optimal with respect to the old data (as far as my selection logic is concerned), but to be a very poor predictor of this season's performance when compared with current season data, as it eventually emerges. Selecting a cheap initial squad gives me flexiblity to leverage current season data to make "corrections" to my initial squad that was chosen from old data.
