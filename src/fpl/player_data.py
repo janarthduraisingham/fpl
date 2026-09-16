@@ -65,7 +65,7 @@ def load_element_summary(pid):
 def last_2_yrs_points(pid):
     pl = pd.json_normalize(load_element_summary(pid)['history_past'])
     if 'season_name' in pl.columns:
-        recent_pl = pl[pl['season_name'] >= '2024/25' & pl['season_name'] <= '2025/26']
+        recent_pl = pl[pl['season_name'].isin(['2024/25', '2025/26'])]
         last_2_year_points = recent_pl['total_points'].sum()
         return(last_2_year_points)
     else:
@@ -88,7 +88,7 @@ def last_2_years_points():
 def last_1_yrs_points(pid):
     pl = pd.json_normalize(load_element_summary(pid)['history_past'])
     if 'season_name' in pl.columns:
-        recent_pl = pl[pl['season_name'] >= '2025/26'& pl['season_name'] <= '2025/26']
+        recent_pl = pl[(pl['season_name'] >= '2025/26') & (pl['season_name'] <= '2025/26')]
         last_2_year_points = recent_pl['total_points'].sum()
         return(last_2_year_points)
     else:
