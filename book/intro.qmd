@@ -1,4 +1,4 @@
-# Preseason
+# Preseason {.unnumbered}
 
 ## The Goal
 The purpose of this project is to see how well I can perform using a systematic set of trading rules based on historical data, rather than any knowledge or experience of football
@@ -11,10 +11,10 @@ Perhaps the most objective measure of my performance is the difference between m
 Since my evaluation method is essentially controlling for the initial squad choice, once the season is over I might be able to work out how well my initial squad would have done with 0 transfers, compared to all the other possibilities.
 
 ## Relegation zone
-So, that leaves me with a baseline target of ensuring my final points is higher than the points my initial squad would have ended up on. With 37 transfers
+That leaves me with a baseline target of ensuring my final points is higher than the points my initial squad would have ended up on. With 37 transfers
 
 ## Promotion zone
-A target that feels certainly ambitious and objective (although, impossible to gauge if at all realistic) target might be to end on more than double the points that my initial squad would have
+A target that feels certainly ambitious and objective (although, impossible to gauge if at all realistic) target might be to end on more than 1.5x the points that my initial squad would have
 
 ## Safe zone
 Ending up in the Relegation Zone will be an embarrassing but fun story to tell. Ending up in the Promotion Zone will be an even more fun story to tell. If both elude me, then at least I will have the code for my CV.
