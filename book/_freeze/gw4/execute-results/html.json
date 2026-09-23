@@ -1,10 +1,10 @@
 {
-  "hash": "c57a1fba2651621d895a9f838515c849",
+  "hash": "e7ba0e56195681583088fe916b77ad6d",
   "result": {
     "engine": "jupyter",
-    "markdown": "# GW 2 {.unnumbered}\n\nFirst let's see how we did in GW 1\n\n\n## Performance to date\n\n::: {#c89b3b7c .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](gw4_files/figure-html/cell-2-output-1.png){width=585 height=430}\n:::\n:::\n\n\nAbout the same as average. That's fine for now.\n\n",
+    "markdown": "# GW 4 {.unnumbered}\n\nFirst let's see how we did in GW 1\n\n\n## Performance to date\n\n::: {#8ff29b40 .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](gw4_files/figure-html/cell-2-output-1.png){width=585 height=430}\n:::\n:::\n\n\nAbout the same as average. That's fine for now.\n\n",
     "supporting": [
-      "gw4_files"
+      "gw4_files\\figure-html"
     ],
     "filters": [],
     "includes": {}
