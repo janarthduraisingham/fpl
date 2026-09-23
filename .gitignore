@@ -218,7 +218,7 @@ __marimo__/
 .streamlit/secrets.toml
 
 # Data
-data/
+data/*
 *.xlsx
 *.xls
 *.xlsm
@@ -232,3 +232,6 @@ data/
 _environment
 /.quarto/
 **/*.quarto_ipynb
+
+
+!data/points_tracker.csv

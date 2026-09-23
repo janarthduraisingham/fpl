@@ -9,7 +9,10 @@ book:
     - index.qmd
     - intro.qmd
     - gw1.qmd
-    #- references.qmd
+    - gw2.qmd
+    - gw3.qmd
+    - gw4.qmd
+    - gw5.qmd
 
 bibliography: references.bib
 
@@ -22,7 +25,7 @@ format:
   #  documentclass: scrreprt
 
 execute:
-  freeze: true
+  freeze: auto
 
 
 

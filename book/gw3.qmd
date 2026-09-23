@@ -1,0 +1,14 @@
+# GW 3 {.unnumbered}
+
+First let's see how we did in GW 1
+
+
+## Performance to date
+```{python}
+#| echo: false
+from fpl.points_tracker import points_tracker
+
+points_tracker(2)
+```
+
+About the same as average. That's fine for now.
