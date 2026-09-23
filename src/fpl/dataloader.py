@@ -20,10 +20,10 @@ def dataloader():
         base_url = 'https://fantasy.premierleague.com/api/'
         r = requests.get(base_url + 'bootstrap-static/').json()
 
-        with open('bootstrap-static.json', 'w') as f:
+        with open('data/bootstrap-static.json', 'w') as f:
             json.dump(r, f)
 
-        with open('bootstrap-static.json') as f:
+        with open('data/bootstrap-static.json') as f:
             r = json.load(f)
 
         players = pd.json_normalize(r['elements']).rename(
@@ -66,7 +66,8 @@ def dataloader():
             with open('data/element_summary/element_summary_' + str(pid) + '.json', 'w') as f:
                 json.dump(pid_gameweek_history, f)
 
-
+if __name__ == '__main__':
+    dataloader()
 
 '''
     df['points_per_cost'] = df['total_points']/df['now_cost']
