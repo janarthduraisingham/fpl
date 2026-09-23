@@ -1,4 +1,4 @@
-# GW 5 {.unnumbered}
+# GW 5 Eying up Transfers {.unnumbered}
 
 First let's see how we did in GW 1
 
@@ -12,3 +12,12 @@ points_tracker(4)
 ```
 
 About the same as average. That's fine for now.
+
+## Transfers
+
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts
+
+print(points_ts(10))
+```
