@@ -224,7 +224,6 @@ data/*
 *.xlsm
 *.xlsb
 *.csv
-*.png
 *.html
 *.pdf
 
