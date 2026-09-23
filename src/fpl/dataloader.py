@@ -6,6 +6,8 @@ from pathlib import Path
 
 def dataloader():
 
+    base_url = 'https://fantasy.premierleague.com/api/'
+
     refresh_choice = input("Refresh player data? (y/n) ")
 
     if refresh_choice not in ["Y", "y"]:
@@ -17,7 +19,6 @@ def dataloader():
         folder_path = Path("data/element_summary")
         folder_path.mkdir(parents=True, exist_ok=True)
 
-        base_url = 'https://fantasy.premierleague.com/api/'
         r = requests.get(base_url + 'bootstrap-static/').json()
 
         with open('data/bootstrap-static.json', 'w') as f:
@@ -65,6 +66,23 @@ def dataloader():
 
             with open('data/element_summary/element_summary_' + str(pid) + '.json', 'w') as f:
                 json.dump(pid_gameweek_history, f)
+
+    refresh_gw_choice = input("Refresh gameweek data? (y/n) ")
+    
+    if refresh_gw_choice not in ["Y", "y"]:
+        print("WARNING: gammeweek data will not refresh")
+
+    else:
+        for i in range(38):
+            gw=i+1
+            print("Loading data for gameweek " + str(gw) + "...")
+            gameweek_data = requests.get(base_url + 'event/' + str(gw) + '/live').json()
+
+            with open('data/gw_data/gw_' + str(gw) + '.json', 'w') as f:
+                json.dump(gameweek_data, f)
+
+
+        
 
 if __name__ == '__main__':
     dataloader()
