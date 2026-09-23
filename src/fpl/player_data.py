@@ -7,7 +7,7 @@ from pyprojroot import here
 def players():
     #print("underpriced analysis commencing")
 
-    with open(here('bootstrap-static.json')) as f:
+    with open(here('data/bootstrap-static.json')) as f:
         r = json.load(f)
 
     players = pd.json_normalize(r['elements']).rename(
@@ -17,7 +17,7 @@ def players():
 
 def teams():
 
-    with open(here('bootstrap-static.json')) as f:
+    with open(here('data/bootstrap-static.json')) as f:
             r = json.load(f)
 
     teams = pd.json_normalize(r['teams'])
@@ -26,7 +26,7 @@ def teams():
 
 def positions():
 
-    with open(here('bootstrap-static.json')) as f:
+    with open(here('data/bootstrap-static.json')) as f:
             r = json.load(f)
 
     positions = pd.json_normalize(r['element_types'])
