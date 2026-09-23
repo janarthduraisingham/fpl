@@ -1,0 +1,12 @@
+{
+  "hash": "752f4a5cd61dd46975e6f08a0292d66b",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "# GW 2 {.unnumbered}\n\nFirst let's see how we did in GW 1\n\n\n## Performance to date\n\n::: {#c4a89b48 .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](gw2_files/figure-html/cell-2-output-1.png){width=585 height=430}\n:::\n:::\n\n\nAbout the same as average. That's fine for now.\n\n",
+    "supporting": [
+      "gw2_files\\figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
