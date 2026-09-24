@@ -22,12 +22,54 @@ How do I do decide what short term and long term means in football? The alpha pa
 I will choose an alpha of a half for the short term EWMA, and an alpha of a quarter for the long term EWMA. If this proves too volatile, I'll adjust this later. But this is something that I don't want to adjust more than once or twice over the whole season. 
 
 ## Computing EWMAC(0.5, 0.25)
-Let's go back to Benjamin White and compute his EWMA-0.5 and EWMA-0.25
+Let's go back to Benjamin White and compute his EWMA-0.5 and EWMA-0.25 as well as the crossover. We'll also include his simple 4 week moving average (SMA-4) of points.
 ```{python}
 #| echo: false
 from fpl.ewmac import points_ts, ewmac_ts
 
 r = ewmac_ts(pid=10, short_alpha=0.5, long_alpha=0.25)
-r['df']
+#print(r['df'])
 r['plot']
+```
+
+Both EWMAs smooth out the underlying timeseries. The short EWMA (alpha=0.5) being below the long EWMA (alpha=0.25) indicates that White's form is only deteriorating. Note that we don't get values for SMA-4 until we have 4 data points.
+
+## Ranking players by SMA(4) and EWMAC(0.5, 0.25)
+Let's get the players with the highest simple moving 4 week average, and consider buying those with large EWMAC(0.5, 0.25).
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+r = ewmac_all(gw=5)
+print(r.head(20))
+```
+
+Removing anyone with a negative EWMAC(0.5, 0.25)...
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+print(r[r['ewmac_0.5_0.25']>=0].head(20))
+```
+
+Now we'll look at our team
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+print(r[r['second_name'].isin(['Verbruggen',
+'Mitchell',
+'Van Hecke',
+'Tarkowski',
+'Williams',
+'Szoboszlai',
+'Rice',
+'Anderson',
+'Iwobi',
+'Calvert-Lewin',
+'Leno',
+'Mateta',
+'Damsgaard',
+'Welbeck',
+'Guéhi'])])
 ```
