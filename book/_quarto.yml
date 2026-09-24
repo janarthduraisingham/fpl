@@ -9,10 +9,10 @@ book:
     - index.qmd
     - intro.qmd
     - gw1.qmd
-    - gw2.qmd
-    - gw3.qmd
-    - gw4.qmd
-    - gw5.qmd
+    - gw2_5.qmd
+    #- gw3.qmd
+    #- gw4.qmd
+    - gw6.qmd
 
 bibliography: references.bib
 

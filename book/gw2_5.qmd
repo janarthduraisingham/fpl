@@ -1,0 +1,21 @@
+# GW 2-5: The Warm Up {.unnumbered}
+
+## Where to go from my initial squad?
+I picked my initial squad based on past season points data and current price data. I obviously expect this team to not be the optimal team for this season - both because the past data will not be a completely accurate predictor for future performance, and because, even if it were, I don't expect my crude points/cost metric to fully capture that putative predictive power. This makes sense for all players, amateur and experienced alike, otherwise transfers would not be such a limited resource.
+
+Given that I know I will need to make transfers to improve my squad, and that I know the basis on which I picked that inital team is suboptimal, it follows that the basis on which I should make transfers as the season progresses is that points that players score in the current season. This is obvious. What requires more judgement is when to start making transfers. I'll have current season data as soon as GW 1 has been played. Each player will have one datapoint for "points" the current season. Do I make a transfer based on that? Should I buy the player who scores the most points and sell my player who scores fewest? Making transfers based on one current data point (compared with the 38 * 2 = 76 datapoints for the iniital squad) seems ill-advised - that one datapoint is liable to noise. What I need to observe first is a burning-in period, a period long enough that the "currentness" (implicitly, predictive power) of the data is no longer outweighed by the volatility it carries by virtue of being much less than 76 data points.
+
+## The burn-in period
+In absence of any knowlegde of how long it takes players to warm up to the new season, and in balance of not wanting to wait too long, given my suboptimal initial squad, I'll start making transfers after GW 5.
+
+
+## Initial Squad performance
+In the meantime, we can see how our initial squad fares.
+```{python}
+#| echo: false
+from fpl.points_tracker import points_tracker
+
+points_tracker(5)
+```
+
+Given my initial squad cost £86m, I expect it to underperform the average (hopefully only slightly). GW 2 was the only starkly different week to the average performance. I don't want to read too much into the performance of my initial squad during the burn-in period, but the graph is fun to look at.
