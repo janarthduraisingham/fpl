@@ -35,6 +35,26 @@ def points_ts(pid):
               'plot':plot}
     return(result)
 
+def ewmac_ts(pid, short_alpha, long_alpha):
+    df = points_ts(pid)['df']
+    df['ewma_'+str(short_alpha)] = df['total_points'].ewm(alpha=short_alpha).mean()
+    df['ewma_'+str(long_alpha)] = df['total_points'].ewm(alpha=long_alpha).mean()
+
+    df_tidy = df[['GW', 'total_points', 'ewma_'+str(short_alpha), 'ewma_'+str(long_alpha)]].melt(
+            id_vars = 'GW',
+            var_name= 'statistic',
+            value_name= 'value'
+        )
+
+    ax = sns.lineplot(data=df_tidy, x='GW', y='value', hue='statistic')
+    plot = ax.figure
+    plt.close(plot)
+
+
+    result = {'df':df,
+              'plot':plot}
+
+    return(result)
+
 if __name__ == '__main__':
-    print(points_ts(10)['df'])
-    points_ts(10)['plot']
+    print(ewmac_ts(pid=10, short_alpha=0.5, long_alpha=0.25)['df'])
