@@ -11,18 +11,65 @@ points_ts(10)['plot']
 ```
 
 ## Exponentially Weighted Moving Averages (EWMA)
-I will be buying and selling players based on exponentially weighted moving averages (EWMA). An exponentially weighted moving average is different from a simple moving (or rolling) average in that it (exponentially) upweights more recent observations in the average calculation. The disadvantage of only using the most recent data point to inform my transfers is that I would often be making decisions based on noise. The disadvantage of using a simple moving average is that I am implicitly making older data as important as newer data in my calculation. The exponentially weighted moving average is a pragmatic halfway house that uses a range of data, but is less influenced by older data in the window.
+I will be buying and selling players based on exponentially weighted moving averages (EWMA). An exponentially weighted moving average is different from a simple moving (or rolling) average in that it (exponentially) upweights more recent observations in the average calculation. The disadvantage of only using the most recent data point to inform my transfers is that I would often be making decisions based on noise. The disadvantage of using a simple moving average is that I am implicitly making older data as important as newer data in my calculation. The exponentially weighted moving average is a pragmatic halfway house that uses all the available data, but is less influenced by older data.
 
 ## The Exponentially Weighted Moving Average Crossover (EWMAC)
-The strategy I will be using is called an Exponentially Weighted Moving Average Crossover (EWMAC). Put simply, I will look to buy players whose short term EWMA is higher than their long term EWMA. Conversely, I will look to sell any of my players whose short term EWMA is lower than their long term EWMA. The idea is that when a player's short term EWMA is higher than their long term EWMA, their form is improving, and vice versa. Transgerring based on the crossover of a short and long term EWMA, rather than one EWMA means I should heopfully yuy (sell) players who not are in improving (deteriorating) form, but are in "accelerating" in that direction, rather than tapering off. This hopefully will cut out noise and save me from making transfers based on signals that soon stabilise.
+The strategy I will be using is called an Exponentially Weighted Moving Average Crossover (EWMAC). Put simply, in addition to the criterion of having a high EWMA, I will look to buy players whose short term EWMA is also higher than their long term EWMA. Conversely, I will look to sell any of my players whose short term EWMA is lower than their long term EWMA. The idea is that when a player's short term EWMA is higher than their long term EWMA, their form is improving, and vice versa. Transgerring based on the crossover of a short and long term EWMA, rather than one EWMA means I should heopfully yuy (sell) players who not are in improving (deteriorating) form, but are in "accelerating" in that direction, rather than tapering off. This hopefully will cut out noise and save me from making transfers based on signals that soon stabilise.
 
 ### Parameters
-How do I do decide what short term and long term means in football? I will choose 3 games as the short term window and 5 games as the long term window. If this proves too volatile, I'll adjust this later. But this is something that I don't want to adjust more than once or twice over the whole season. 
+How do I do decide what short term and long term means in football? The alpha parameter in the EWMA formula defines the weight of the most recent observation i.e. 0.5 means that the most recent value will contribute to half od the EQMA value. The remaining points follow suit geometrically, so the second to last point contibutes half of the remaining weight, which makes a quarter, the third last point will contribute an eight to the average, etc. etc. 
 
-## Computing EWMAC(3, 5)
-Let's go back to Benjamin White and compute his EWMA-3 and EWMA-5
+I will choose an alpha of a half for the short term EWMA, and an alpha of a quarter for the long term EWMA. If this proves too volatile, I'll adjust this later. But this is something that I don't want to adjust more than once or twice over the whole season. 
+
+## Computing EWMAC(0.5, 0.25)
+Let's go back to Benjamin White and compute his EWMA-0.5 and EWMA-0.25 as well as the crossover. We'll also include his simple 4 week moving average (SMA-4) of points.
 ```{python}
 #| echo: false
-from fpl.ewmac import points_ts
+from fpl.ewmac import points_ts, ewmac_ts
 
+r = ewmac_ts(pid=10, short_alpha=0.5, long_alpha=0.25)
+#print(r['df'])
+r['plot']
+```
+
+Both EWMAs smooth out the underlying timeseries. The short EWMA (alpha=0.5) being below the long EWMA (alpha=0.25) indicates that White's form is only deteriorating. Note that we don't get values for SMA-4 until we have 4 data points.
+
+## Ranking players by SMA(4) and EWMAC(0.5, 0.25)
+Let's get the players with the highest simple moving 4 week average, and consider buying those with large EWMAC(0.5, 0.25).
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+r = ewmac_all(gw=5)
+print(r.head(20))
+```
+
+Removing anyone with a negative EWMAC(0.5, 0.25)...
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+print(r[r['ewmac_0.5_0.25']>=0].head(20))
+```
+
+Now we'll look at our team
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+print(r[r['second_name'].isin(['Verbruggen',
+'Mitchell',
+'Van Hecke',
+'Tarkowski',
+'Williams',
+'Szoboszlai',
+'Rice',
+'Anderson',
+'Iwobi',
+'Calvert-Lewin',
+'Leno',
+'Mateta',
+'Damsgaard',
+'Welbeck',
+'Guéhi'])])
 ```
