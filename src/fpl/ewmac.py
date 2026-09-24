@@ -3,9 +3,10 @@ from pyprojroot import here
 import seaborn as sns
 import matplotlib.pyplot as plt
 import json
+from fpl.player_data import players, positions
 
 def points_ts(pid):
-    print("ewmac commencing...")
+    #print("ewmac commencing...")
 
     with open(here("data/element_summary/element_summary_"+str(pid)+".json")) as f:
         data = json.load(f)
@@ -14,11 +15,26 @@ def points_ts(pid):
         ['element', 'total_points', 'round']
     ]
 
-    #ax = sns.barplot(data=points, x='gw', y='points', hue = 'team')
-    #plt.show()
-    #print(df.head())
-    return(df)
+    # Join names, teams, positions
+    names = players()[['PID', 'first_name', 'second_name']]
+
+    df = pd.merge(
+        left = df,
+        right = names,
+        left_on = "element",
+        right_on = "PID"
+    ).drop(columns=['PID']).rename(
+        columns={'round':'GW'}
+    )
+
+    ax = sns.lineplot(data=df, x='GW', y='total_points')
+    plot = ax.figure
+    plt.close(plot)
+
+    result = {'df':df,
+              'plot':plot}
+    return(result)
 
 if __name__ == '__main__':
-    print(points_ts(10))
-    print("complete")
+    print(points_ts(10)['df'])
+    points_ts(10)['plot']

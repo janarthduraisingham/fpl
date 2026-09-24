@@ -1,8 +1,8 @@
 {
-  "hash": "bcb9e6d8046d817053fe4620e08b9166",
+  "hash": "0d1f3996109fdc6d3f0bea5b803cd374",
   "result": {
     "engine": "jupyter",
-    "markdown": "# GW 5 Eying up Transfers {.unnumbered}\n\nFirst let's see how we did in GW 1\n\n\n## Performance to date\n\n::: {#60e42bcf .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](gw5_files/figure-html/cell-2-output-1.png){width=585 height=430}\n:::\n:::\n\n\nAbout the same as average. That's fine for now.\n\n## Transfers\n\n::: {#770c0df5 .cell execution_count=2}\n\n::: {.cell-output .cell-output-stdout}\n```\newmac commencing...\n   element  total_points  round\n0       10            11      1\n1       10             7      2\n2       10             2      3\n3       10             1      4\n4       10             0      5\n```\n:::\n:::\n\n\n",
+    "markdown": "# GW 5 Eying up Transfers {.unnumbered}\n\nFirst let's see how we did in GW 1\n\n\n## Performance to date\n\n::: {#51d3dcec .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](gw5_files/figure-html/cell-2-output-1.png){width=585 height=430}\n:::\n:::\n\n\nAbout the same as average. That's fine for now.\n\n## Transfers\nNow the burn-in period is complete, and I can start making transfers based on players' recent points performance. Let's have a look at a sample timeseries of points data\n\n::: {#3c05e657 .cell execution_count=2}\n\n::: {.cell-output .cell-output-display execution_count=2}\n![](gw5_files/figure-html/cell-3-output-1.png){width=585 height=430}\n:::\n:::\n\n\n",
     "supporting": [
       "gw5_files\\figure-html"
     ],
