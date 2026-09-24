@@ -140,43 +140,73 @@
     ]
   },
   {
-    "objectID": "gw2.html",
-    "href": "gw2.html",
-    "title": "GW 2",
+    "objectID": "gw2_5.html",
+    "href": "gw2_5.html",
+    "title": "GW 2-5: The Warm Up",
     "section": "",
-    "text": "Performance to date\nFirst let’s see how we did in GW 1\nAbout the same as average. That’s fine for now.",
+    "text": "Where to go from my initial squad?\nI picked my initial squad based on past season points data and current price data. I obviously expect this team to not be the optimal team for this season - both because the past data will not be a completely accurate predictor for future performance, and because, even if it were, I don’t expect my crude points/cost metric to fully capture that putative predictive power. This makes sense for all players, amateur and experienced alike, otherwise transfers would not be such a limited resource.\nGiven that I know I will need to make transfers to improve my squad, and that I know the basis on which I picked that inital team is suboptimal, it follows that the basis on which I should make transfers as the season progresses is that points that players score in the current season. This is obvious. What requires more judgement is when to start making transfers. I’ll have current season data as soon as GW 1 has been played. Each player will have one datapoint for “points” the current season. Do I make a transfer based on that? Should I buy the player who scores the most points and sell my player who scores fewest? Making transfers based on one current data point (compared with the 38 * 2 = 76 datapoints for the iniital squad) seems ill-advised - that one datapoint is liable to noise. What I need to observe first is a burning-in period, a period long enough that the “currentness” (implicitly, predictive power) of the data is no longer outweighed by the volatility it carries by virtue of being much less than 76 data points.",
     "crumbs": [
-      "GW 2"
+      "GW 2-5: The Warm Up"
     ]
   },
   {
-    "objectID": "gw3.html",
-    "href": "gw3.html",
-    "title": "GW 3",
-    "section": "",
-    "text": "Performance to date\nFirst let’s see how we did in GW 1\nAbout the same as average. That’s fine for now.",
+    "objectID": "gw2_5.html#the-burn-in-period",
+    "href": "gw2_5.html#the-burn-in-period",
+    "title": "GW 2-5: The Warm Up",
+    "section": "The burn-in period",
+    "text": "The burn-in period\nIn absence of any knowlegde of how long it takes players to warm up to the new season, and in balance of not wanting to wait too long, given my suboptimal initial squad, I’ll start making transfers after GW 5.",
     "crumbs": [
-      "GW 3"
+      "GW 2-5: The Warm Up"
     ]
   },
   {
-    "objectID": "gw4.html",
-    "href": "gw4.html",
-    "title": "GW 4",
-    "section": "",
-    "text": "Performance to date\nFirst let’s see how we did in GW 1\nAbout the same as average. That’s fine for now.",
+    "objectID": "gw2_5.html#initial-squad-performance",
+    "href": "gw2_5.html#initial-squad-performance",
+    "title": "GW 2-5: The Warm Up",
+    "section": "Initial Squad performance",
+    "text": "Initial Squad performance\nIn the meantime, we can see how our initial squad fares.\n\n\n\n\n\n\n\n\n\nGiven my initial squad cost £86m, I expect it to underperform the average (hopefully only slightly). GW 2 was the only starkly different week to the average performance. I don’t want to read too much into the performance of my initial squad during the burn-in period, but the graph is fun to look at.",
     "crumbs": [
-      "GW 4"
+      "GW 2-5: The Warm Up"
     ]
   },
   {
-    "objectID": "gw5.html",
-    "href": "gw5.html",
-    "title": "GW 5",
+    "objectID": "gw6.html",
+    "href": "gw6.html",
+    "title": "GW 6: The Game Begins",
     "section": "",
-    "text": "Performance to date\nFirst let’s see how we did in GW 1\nAbout the same as average. That’s fine for now.",
+    "text": "Sample data\nNow the burn-in period is complete, and I can start making transfers based on players’ recent points performance. Let’s have a look at a sample timeseries of points data for a random player: Benjamin White.",
     "crumbs": [
-      "GW 5"
+      "GW 6: The Game Begins"
+    ]
+  },
+  {
+    "objectID": "gw6.html#exponentially-weighted-moving-averages-ewma",
+    "href": "gw6.html#exponentially-weighted-moving-averages-ewma",
+    "title": "GW 6: The Game Begins",
+    "section": "Exponentially Weighted Moving Averages (EWMA)",
+    "text": "Exponentially Weighted Moving Averages (EWMA)\nI will be buying and selling players based on exponentially weighted moving averages (EWMA). An exponentially weighted moving average is different from a simple moving (or rolling) average in that it (exponentially) upweights more recent observations in the average calculation. The disadvantage of only using the most recent data point to inform my transfers is that I would often be making decisions based on noise. The disadvantage of using a simple moving average is that I am implicitly making older data as important as newer data in my calculation. The exponentially weighted moving average is a pragmatic halfway house that uses a range of data, but is less influenced by older data in the window.",
+    "crumbs": [
+      "GW 6: The Game Begins"
+    ]
+  },
+  {
+    "objectID": "gw6.html#the-exponentially-weighted-moving-average-crossover-ewmac",
+    "href": "gw6.html#the-exponentially-weighted-moving-average-crossover-ewmac",
+    "title": "GW 6: The Game Begins",
+    "section": "The Exponentially Weighted Moving Average Crossover (EWMAC)",
+    "text": "The Exponentially Weighted Moving Average Crossover (EWMAC)\nThe strategy I will be using is called an Exponentially Weighted Moving Average Crossover (EWMAC). Put simply, I will look to buy players whose short term EWMA is higher than their long term EWMA. Conversely, I will look to sell any of my players whose short term EWMA is lower than their long term EWMA. The idea is that when a player’s short term EWMA is higher than their long term EWMA, their form is improving, and vice versa. Transgerring based on the crossover of a short and long term EWMA, rather than one EWMA means I should heopfully yuy (sell) players who not are in improving (deteriorating) form, but are in “accelerating” in that direction, rather than tapering off. This hopefully will cut out noise and save me from making transfers based on signals that soon stabilise.\n\nParameters\nHow do I do decide what short term and long term means in football? I will choose 3 games as the short term window and 5 games as the long term window. If this proves too volatile, I’ll adjust this later. But this is something that I don’t want to adjust more than once or twice over the whole season.",
+    "crumbs": [
+      "GW 6: The Game Begins"
+    ]
+  },
+  {
+    "objectID": "gw6.html#computing-ewmac3-5",
+    "href": "gw6.html#computing-ewmac3-5",
+    "title": "GW 6: The Game Begins",
+    "section": "Computing EWMAC(3, 5)",
+    "text": "Computing EWMAC(3, 5)\nLet’s go back to Benjamin White and compute his EWMA-3 and EWMA-5",
+    "crumbs": [
+      "GW 6: The Game Begins"
     ]
   }
 ]

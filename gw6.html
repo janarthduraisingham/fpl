@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>GW 4 – Fantasy Premier League</title>
+<title>GW 6: The Game Begins – Fantasy Premier League</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./gw5.html" rel="next">
-<link href="./gw3.html" rel="prev">
+<link href="./gw2_5.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -47,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ed7344add5f1663e434276306a2aa159.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fd0503e23dce65854c81c5baaade3bdf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -88,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gw4.html">GW 4</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gw6.html">GW 6: The Game Begins</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -133,26 +132,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gw2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GW 2</span></a>
+  <a href="./gw2_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GW 2-5: The Warm Up</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gw3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GW 3</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./gw4.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">GW 4</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./gw5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GW 5</span></a>
+  <a href="./gw6.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">GW 6: The Game Begins</span></a>
   </div>
 </li>
     </ul>
@@ -165,7 +152,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#performance-to-date" id="toc-performance-to-date" class="nav-link active" data-scroll-target="#performance-to-date">Performance to date</a></li>
+  <li><a href="#sample-data" id="toc-sample-data" class="nav-link active" data-scroll-target="#sample-data">Sample data</a></li>
+  <li><a href="#exponentially-weighted-moving-averages-ewma" id="toc-exponentially-weighted-moving-averages-ewma" class="nav-link" data-scroll-target="#exponentially-weighted-moving-averages-ewma">Exponentially Weighted Moving Averages (EWMA)</a></li>
+  <li><a href="#the-exponentially-weighted-moving-average-crossover-ewmac" id="toc-the-exponentially-weighted-moving-average-crossover-ewmac" class="nav-link" data-scroll-target="#the-exponentially-weighted-moving-average-crossover-ewmac">The Exponentially Weighted Moving Average Crossover (EWMAC)</a>
+  <ul class="collapse">
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
+  </ul></li>
+  <li><a href="#computing-ewmac3-5" id="toc-computing-ewmac3-5" class="nav-link" data-scroll-target="#computing-ewmac3-5">Computing EWMAC(3, 5)</a></li>
   </ul>
 </nav>
     </div>
@@ -174,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">GW 4</h1>
+<h1 class="title">GW 6: The Game Begins</h1>
 </div>
 
 
@@ -191,19 +184,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>First let’s see how we did in GW 1</p>
-<section id="performance-to-date" class="level2">
-<h2 class="anchored" data-anchor-id="performance-to-date">Performance to date</h2>
-<div id="8ff29b40" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display">
+<section id="sample-data" class="level2">
+<h2 class="anchored" data-anchor-id="sample-data">Sample data</h2>
+<p>Now the burn-in period is complete, and I can start making transfers based on players’ recent points performance. Let’s have a look at a sample timeseries of points data for a random player: Benjamin White.</p>
+<div id="e30f6138" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
-<p><img src="gw4_files/figure-html/cell-2-output-1.png" width="585" height="430" class="figure-img"></p>
+<p><img src="gw6_files/figure-html/cell-2-output-1.png" width="585" height="430" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>About the same as average. That’s fine for now.</p>
+</section>
+<section id="exponentially-weighted-moving-averages-ewma" class="level2">
+<h2 class="anchored" data-anchor-id="exponentially-weighted-moving-averages-ewma">Exponentially Weighted Moving Averages (EWMA)</h2>
+<p>I will be buying and selling players based on exponentially weighted moving averages (EWMA). An exponentially weighted moving average is different from a simple moving (or rolling) average in that it (exponentially) upweights more recent observations in the average calculation. The disadvantage of only using the most recent data point to inform my transfers is that I would often be making decisions based on noise. The disadvantage of using a simple moving average is that I am implicitly making older data as important as newer data in my calculation. The exponentially weighted moving average is a pragmatic halfway house that uses a range of data, but is less influenced by older data in the window.</p>
+</section>
+<section id="the-exponentially-weighted-moving-average-crossover-ewmac" class="level2">
+<h2 class="anchored" data-anchor-id="the-exponentially-weighted-moving-average-crossover-ewmac">The Exponentially Weighted Moving Average Crossover (EWMAC)</h2>
+<p>The strategy I will be using is called an Exponentially Weighted Moving Average Crossover (EWMAC). Put simply, I will look to buy players whose short term EWMA is higher than their long term EWMA. Conversely, I will look to sell any of my players whose short term EWMA is lower than their long term EWMA. The idea is that when a player’s short term EWMA is higher than their long term EWMA, their form is improving, and vice versa. Transgerring based on the crossover of a short and long term EWMA, rather than one EWMA means I should heopfully yuy (sell) players who not are in improving (deteriorating) form, but are in “accelerating” in that direction, rather than tapering off. This hopefully will cut out noise and save me from making transfers based on signals that soon stabilise.</p>
+<section id="parameters" class="level3">
+<h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
+<p>How do I do decide what short term and long term means in football? I will choose 3 games as the short term window and 5 games as the long term window. If this proves too volatile, I’ll adjust this later. But this is something that I don’t want to adjust more than once or twice over the whole season.</p>
+</section>
+</section>
+<section id="computing-ewmac3-5" class="level2">
+<h2 class="anchored" data-anchor-id="computing-ewmac3-5">Computing EWMAC(3, 5)</h2>
+<p>Let’s go back to Benjamin White and compute his EWMA-3 and EWMA-5</p>
 
 
 </section>
@@ -611,14 +619,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./gw3.html" class="pagination-link" aria-label="GW 3">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">GW 3</span>
+      <a href="./gw2_5.html" class="pagination-link" aria-label="GW 2-5: The Warm Up">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">GW 2-5: The Warm Up</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./gw5.html" class="pagination-link" aria-label="GW 5">
-        <span class="nav-page-text">GW 5</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
