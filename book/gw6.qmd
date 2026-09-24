@@ -1,20 +1,7 @@
-# GW 5 Eying up Transfers {.unnumbered}
-
-First let's see how we did in GW 1
-
-
-## Performance to date
-```{python}
-#| echo: false
-from fpl.points_tracker import points_tracker
-
-points_tracker(4)
-```
-
-About the same as average. That's fine for now.
+# GW 6: The Game Begins {.unnumbered}
 
 ## Sample data
-Now the burn-in period is complete, and I can start making transfers based on players' recent points performance. Let's have a look at a sample timeseries of points data for a random player Benjamin White.
+Now the burn-in period is complete, and I can start making transfers based on players' recent points performance. Let's have a look at a sample timeseries of points data for a random player: Benjamin White.
 ```{python}
 #| echo: false
 from fpl.ewmac import points_ts
@@ -30,4 +17,12 @@ I will be buying and selling players based on exponentially weighted moving aver
 The strategy I will be using is called an Exponentially Weighted Moving Average Crossover (EWMAC). Put simply, I will look to buy players whose short term EWMA is higher than their long term EWMA. Conversely, I will look to sell any of my players whose short term EWMA is lower than their long term EWMA. The idea is that when a player's short term EWMA is higher than their long term EWMA, their form is improving, and vice versa. Transgerring based on the crossover of a short and long term EWMA, rather than one EWMA means I should heopfully yuy (sell) players who not are in improving (deteriorating) form, but are in "accelerating" in that direction, rather than tapering off. This hopefully will cut out noise and save me from making transfers based on signals that soon stabilise.
 
 ### Parameters
-How do I do decide what short term and long term means in football? I will choose 3 games as the short term window and 5 games as the long term window. If this proves too volatile, I'll adjust this later. But this is something that I don't want to adjust more than once or twice over the whole season.
+How do I do decide what short term and long term means in football? I will choose 3 games as the short term window and 5 games as the long term window. If this proves too volatile, I'll adjust this later. But this is something that I don't want to adjust more than once or twice over the whole season. 
+
+## Computing EWMAC(3, 5)
+Let's go back to Benjamin White and compute his EWMA-3 and EWMA-5
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts
+
+```
