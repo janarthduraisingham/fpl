@@ -76,7 +76,7 @@ print(r[r['second_name'].isin(['Verbruggen',
 ## Transfers
 
 
-### Tap-ins
+### Forward tap-in
 I have 5 transfers to play with, but I don't have to use them all. First thing that stands out is that I have two forwards with a very low SMA4, and Mateta has a negative EWMAC. So first step is to find at least one new forward. Joao Pedro seems to be the best contender - the forward with the highest SMA4 and a positive EWMAC. I want to take a closer look at both of them before I set anything in stone.
 
 #### Mateta
@@ -102,7 +102,7 @@ A little choppy, but since I don't intend to hold players for anything less than
 Happy to sell for 6.3 and buy at 7.8 - that's why I made my initial squad cheap.
 
 ### A tougher call
-For my next transfer, do I transfer my second-from-bottom player, a forward with a positive EWMAC, or my third-from-bottom-player, a midfielder with a negative EWMAC. Given that there aren't any more forwards too high up on the list to transfer in, and given that Szoboszlai has a EWMAC is nearly -1, my next transfer will him. I'll choose Semenyo to replace him - second to Groß in terms of SMA4, but a better EWMAC. Again, let's take a look at both of them more closely first.
+For my next transfer, do I transfer my second-from-bottom player, a forward with a positive EWMAC, or my third-from-bottom-player, a midfielder with a negative EWMAC. Given that there aren't any more forwards too high up on the list to transfer in, and given that Szoboszlai has a EWMAC is nearly -1, my next transfer will be him. I'll choose Semenyo to replace him - second to Groß in terms of SMA4, but a better EWMAC. Again, let's take a look at both of them more closely first.
 
 #### Szoboszlai
 ```{python}
@@ -136,7 +136,7 @@ Much better. I'll take McGinn over Semenyo in the spirit of momentum.
 
 Selling 6.9m and buying at 5.4m means I even make a profit after transfer fees. Result.
 
-# Easy defender win
+### Defender no brainer
 Dropping Williams for De Cuyper looks like a no-brainer
 
 #### Williams
@@ -160,7 +160,7 @@ r['plot']
 
 Easy yes. Very Happy to buy at 5.1m and sell at 5.0m.
 
-### Summary
+## Summary
 I don't want to be too heavy handed this early on so we'll stop at three transfers.
 
 - Sell Mateta for 6.3m and buy Joao Pedro for 7.8m
