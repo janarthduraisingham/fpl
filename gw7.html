@@ -162,13 +162,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ranking-players-by-sma4-and-ewmac0.5-0.25" id="toc-ranking-players-by-sma4-and-ewmac0.5-0.25" class="nav-link" data-scroll-target="#ranking-players-by-sma4-and-ewmac0.5-0.25">Ranking players by SMA(4) and EWMAC(0.5, 0.25)</a></li>
   <li><a href="#transfers" id="toc-transfers" class="nav-link" data-scroll-target="#transfers">Transfers</a>
   <ul class="collapse">
-  <li><a href="#tap-ins" id="toc-tap-ins" class="nav-link" data-scroll-target="#tap-ins">Tap-ins</a></li>
+  <li><a href="#forward-tap-in" id="toc-forward-tap-in" class="nav-link" data-scroll-target="#forward-tap-in">Forward tap-in</a></li>
   <li><a href="#a-tougher-call" id="toc-a-tougher-call" class="nav-link" data-scroll-target="#a-tougher-call">A tougher call</a></li>
+  <li><a href="#defender-no-brainer" id="toc-defender-no-brainer" class="nav-link" data-scroll-target="#defender-no-brainer">Defender no brainer</a></li>
   </ul></li>
-  <li><a href="#easy-defender-win" id="toc-easy-defender-win" class="nav-link" data-scroll-target="#easy-defender-win">Easy defender win</a>
-  <ul class="collapse">
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -197,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sample-data" class="level2">
 <h2 class="anchored" data-anchor-id="sample-data">Sample data</h2>
 <p>Now the burn-in period is complete, and I can start making transfers based on players’ recent points performance. Let’s have a look at a sample timeseries of points data for a random player: Benjamin White.</p>
-<div id="4f86120e" class="cell" data-execution_count="1">
+<div id="ddfe2197" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
@@ -223,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="computing-ewmac0.5-0.25" class="level2">
 <h2 class="anchored" data-anchor-id="computing-ewmac0.5-0.25">Computing EWMAC(0.5, 0.25)</h2>
 <p>Let’s go back to Benjamin White and compute his EWMA-0.5 and EWMA-0.25 as well as the crossover. We’ll also include his simple 4 week moving average (SMA-4) of points.</p>
-<div id="2ea87baf" class="cell" data-execution_count="2">
+<div id="9d1b9a0b" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
@@ -237,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="ranking-players-by-sma4-and-ewmac0.5-0.25" class="level2">
 <h2 class="anchored" data-anchor-id="ranking-players-by-sma4-and-ewmac0.5-0.25">Ranking players by SMA(4) and EWMAC(0.5, 0.25)</h2>
 <p>Let’s get the players with the highest simple moving 4 week average, and consider buying those with large EWMAC(0.5, 0.25).</p>
-<div id="215cfaed" class="cell" data-execution_count="3">
+<div id="184ec9b3" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code> PID              second_name position_name  sma_4  ewmac_0.5_0.25  now_cost
  124                     Groß    Midfielder   9.50            -0.2        60
@@ -263,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Removing anyone with a negative EWMAC(0.5, 0.25)…</p>
-<div id="cbf82d30" class="cell" data-execution_count="4">
+<div id="5215ea11" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code> PID              second_name position_name  sma_4  ewmac_0.5_0.25  now_cost
  115                De Cuyper      Defender   9.00             1.5        51
@@ -289,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Now we’ll look at our team</p>
-<div id="f14f7ce5" class="cell" data-execution_count="5">
+<div id="b6e9831d" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
 <pre><code> PID   second_name position_name  sma_4  ewmac_0.5_0.25  now_cost
  229     Tarkowski      Defender   7.00            -0.7        62
@@ -311,12 +309,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="transfers" class="level2">
 <h2 class="anchored" data-anchor-id="transfers">Transfers</h2>
-<section id="tap-ins" class="level3">
-<h3 class="anchored" data-anchor-id="tap-ins">Tap-ins</h3>
+<section id="forward-tap-in" class="level3">
+<h3 class="anchored" data-anchor-id="forward-tap-in">Forward tap-in</h3>
 <p>I have 5 transfers to play with, but I don’t have to use them all. First thing that stands out is that I have two forwards with a very low SMA4, and Mateta has a negative EWMAC. So first step is to find at least one new forward. Joao Pedro seems to be the best contender - the forward with the highest SMA4 and a positive EWMAC. I want to take a closer look at both of them before I set anything in stone.</p>
 <section id="mateta" class="level4">
 <h4 class="anchored" data-anchor-id="mateta">Mateta</h4>
-<div id="373ac5a4" class="cell" data-execution_count="6">
+<div id="5a0053bc" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 <figure class="figure">
@@ -329,7 +327,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="joao-pedro" class="level4">
 <h4 class="anchored" data-anchor-id="joao-pedro">Joao Pedro</h4>
-<div id="f7b454a4" class="cell" data-execution_count="7">
+<div id="fb02035a" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <figure class="figure">
@@ -344,10 +342,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="a-tougher-call" class="level3">
 <h3 class="anchored" data-anchor-id="a-tougher-call">A tougher call</h3>
-<p>For my next transfer, do I transfer my second-from-bottom player, a forward with a positive EWMAC, or my third-from-bottom-player, a midfielder with a negative EWMAC. Given that there aren’t any more forwards too high up on the list to transfer in, and given that Szoboszlai has a EWMAC is nearly -1, my next transfer will him. I’ll choose Semenyo to replace him - second to Groß in terms of SMA4, but a better EWMAC. Again, let’s take a look at both of them more closely first.</p>
+<p>For my next transfer, do I transfer my second-from-bottom player, a forward with a positive EWMAC, or my third-from-bottom-player, a midfielder with a negative EWMAC. Given that there aren’t any more forwards too high up on the list to transfer in, and given that Szoboszlai has a EWMAC is nearly -1, my next transfer will be him. I’ll choose Semenyo to replace him - second to Groß in terms of SMA4, but a better EWMAC. Again, let’s take a look at both of them more closely first.</p>
 <section id="szoboszlai" class="level4">
 <h4 class="anchored" data-anchor-id="szoboszlai">Szoboszlai</h4>
-<div id="32d8d376" class="cell" data-execution_count="8">
+<div id="5a3e7a04" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 <figure class="figure">
@@ -360,7 +358,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="semenyo" class="level4">
 <h4 class="anchored" data-anchor-id="semenyo">Semenyo</h4>
-<div id="ce65b836" class="cell" data-execution_count="9">
+<div id="c5d1701f" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 <figure class="figure">
@@ -373,7 +371,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="mcginn" class="level4">
 <h4 class="anchored" data-anchor-id="mcginn">McGinn</h4>
-<div id="8a2f3c81" class="cell" data-execution_count="10">
+<div id="8d79016c" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <figure class="figure">
@@ -386,13 +384,12 @@ ul.task-list li input[type="checkbox"] {
 <p>Selling 6.9m and buying at 5.4m means I even make a profit after transfer fees. Result.</p>
 </section>
 </section>
-</section>
-<section id="easy-defender-win" class="level1">
-<h1>Easy defender win</h1>
+<section id="defender-no-brainer" class="level3">
+<h3 class="anchored" data-anchor-id="defender-no-brainer">Defender no brainer</h3>
 <p>Dropping Williams for De Cuyper looks like a no-brainer</p>
 <section id="williams" class="level4">
 <h4 class="anchored" data-anchor-id="williams">Williams</h4>
-<div id="b350b5ca" class="cell" data-execution_count="11">
+<div id="b6de4e66" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 <figure class="figure">
@@ -404,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="de-cuyper" class="level4">
 <h4 class="anchored" data-anchor-id="de-cuyper">De Cuyper</h4>
-<div id="d5f336db" class="cell" data-execution_count="12">
+<div id="60fae503" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 <figure class="figure">
@@ -415,8 +412,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Easy yes. Very Happy to buy at 5.1m and sell at 5.0m.</p>
 </section>
-<section id="summary" class="level3">
-<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>I don’t want to be too heavy handed this early on so we’ll stop at three transfers.</p>
 <ul>
 <li>Sell Mateta for 6.3m and buy Joao Pedro for 7.8m</li>
@@ -426,7 +425,6 @@ ul.task-list li input[type="checkbox"] {
 <p>After transfer fees, this leaves me with a net cashflow of negative 1.4m, which averages under my target of 0.5m per transfer. Fingers crossed for GW7…</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
