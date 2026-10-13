@@ -23,7 +23,8 @@ def points_ts(pid):
         right = names,
         left_on = "element",
         right_on = "PID"
-    ).drop(columns=['PID']).merge(
+    #).drop(columns=['PID']
+    ).merge(
         positions()[['id', 'singular_name']],
             left_on='element_type',
             right_on='id').rename(
@@ -80,11 +81,16 @@ def ewmac_all(gw):
         by=['sma_4', 'ewmac_0.5_0.25'],
         ascending=[False, False]
     )[
-        ['first_name', 'second_name', 'position_name', 'sma_4', 'ewmac_0.5_0.25']
+        ['PID', 'second_name', 'position_name', 'sma_4', 'ewmac_0.5_0.25']
     ]
-
+    df = pd.merge(df,
+                  players()[['PID', 'now_cost']],
+                  left_on='PID',
+                  right_on='PID'
+    ).round({"ewmac_0.5_0.25":1})
+    
     return(df)
 
 if __name__ == '__main__':
     #print(ewmac_df'])
-    print(ewmac_all(gw=5))
+    print(ewmac_all(gw=6).head())
