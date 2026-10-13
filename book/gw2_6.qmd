@@ -1,4 +1,4 @@
-# GW 2-5: The Warm Up {.unnumbered}
+# GW 2-6: The Warm Up {.unnumbered}
 
 ## Where to go from my initial squad?
 I picked my initial squad based on past season points data and current price data. I obviously expect this team to not be the optimal team for this season - both because the past data will not be a completely accurate predictor for future performance, and because, even if it were, I don't expect my crude points/cost metric to fully capture that putative predictive power. This makes sense for all players, amateur and experienced alike, otherwise transfers would not be such a limited resource.
@@ -15,7 +15,7 @@ In the meantime, we can see how our initial squad fares.
 #| echo: false
 from fpl.points_tracker import points_tracker
 
-points_tracker(5)
+points_tracker(6)
 ```
 
 Given my initial squad cost £86m, I expect it to underperform the average (hopefully only slightly). GW 2 was the only starkly different week to the average performance. I don't want to read too much into the performance of my initial squad during the burn-in period, but the graph is fun to look at.

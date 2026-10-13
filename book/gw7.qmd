@@ -1,4 +1,4 @@
-# GW 6: The Game Begins {.unnumbered}
+# GW 7: The Game Begins {.unnumbered}
 
 ## Sample data
 Now the burn-in period is complete, and I can start making transfers based on players' recent points performance. Let's have a look at a sample timeseries of points data for a random player: Benjamin White.
@@ -40,7 +40,7 @@ Let's get the players with the highest simple moving 4 week average, and conside
 #| echo: false
 from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
 
-r = ewmac_all(gw=5)
+r = ewmac_all(gw=6)
 print(r.head(20))
 ```
 
