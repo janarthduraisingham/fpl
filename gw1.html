@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./gw2_5.html" rel="next">
+<link href="./gw2_6.html" rel="next">
 <link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-fd0503e23dce65854c81c5baaade3bdf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -136,14 +136,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gw2_5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GW 2-5: The Warm Up</span></a>
+  <a href="./gw2_6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GW 2-6: The Warm Up</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gw6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GW 6: The Game Begins</span></a>
+  <a href="./gw7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GW 7: The Game Begins</span></a>
   </div>
 </li>
     </ul>
@@ -203,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
 <p>First, a look at the data we have available from the FPL API.</p>
 <section id="players" class="level3">
 <h3 class="anchored" data-anchor-id="players">Players</h3>
-<div id="bf21556b" class="cell" data-execution_count="1">
+<div id="f020b928" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
@@ -273,7 +273,7 @@ ul.task-list li input[type="checkbox"] {
 <td>77</td>
 <td>Amine</td>
 <td>Adli</td>
-<td>49</td>
+<td>48</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">319</th>
@@ -298,7 +298,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="teams" class="level3">
 <h3 class="anchored" data-anchor-id="teams">Teams</h3>
-<div id="b15686d3" class="cell" data-execution_count="2">
+<div id="a5f5aa7b" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
@@ -393,7 +393,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="positions" class="level3">
 <h3 class="anchored" data-anchor-id="positions">Positions</h3>
-<div id="dc8e60f0" class="cell" data-execution_count="3">
+<div id="48b2bba5" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
@@ -437,7 +437,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="combined-data" class="level3">
 <h3 class="anchored" data-anchor-id="combined-data">Combined data</h3>
 <p>We’ll need to combine this data to make use of it, and also declutter what I won’t be using. To keep things simple, I’ll only be using historical points scored to decide how to change my squad.</p>
-<div id="cb9fc1dd" class="cell" data-execution_count="4">
+<div id="1f0053c8" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
@@ -463,28 +463,28 @@ ul.task-list li input[type="checkbox"] {
 <td>Groß</td>
 <td>Brighton</td>
 <td>Midfielder</td>
-<td>58</td>
-<td>47</td>
+<td>60</td>
+<td>53</td>
 </tr>
 <tr class="even">
+<th data-quarto-table-cell-role="th">127</th>
+<td>115</td>
+<td>Maxim</td>
+<td>De Cuyper</td>
+<td>Brighton</td>
+<td>Defender</td>
+<td>51</td>
+<td>53</td>
+</tr>
+<tr class="odd">
 <th data-quarto-table-cell-role="th">272</th>
 <td>229</td>
 <td>James</td>
 <td>Tarkowski</td>
 <td>Everton</td>
 <td>Defender</td>
-<td>61</td>
-<td>43</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">403</th>
-<td>330</td>
-<td>Jayden</td>
-<td>Bogle</td>
-<td>Leeds</td>
-<td>Defender</td>
+<td>62</td>
 <td>46</td>
-<td>42</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">491</th>
@@ -494,37 +494,17 @@ ul.task-list li input[type="checkbox"] {
 <td>Man City</td>
 <td>Forward</td>
 <td>156</td>
-<td>39</td>
+<td>45</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">105</th>
-<td>94</td>
-<td>Kevin</td>
-<td>Schade</td>
-<td>Brentford</td>
-<td>Midfielder</td>
-<td>62</td>
-<td>39</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">127</th>
-<td>115</td>
-<td>Maxim</td>
-<td>De Cuyper</td>
-<td>Brighton</td>
-<td>Defender</td>
-<td>49</td>
-<td>38</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">474</th>
-<td>391</td>
-<td>Joško</td>
-<td>Gvardiol</td>
-<td>Man City</td>
-<td>Defender</td>
-<td>57</td>
-<td>37</td>
+<th data-quarto-table-cell-role="th">184</th>
+<td>165</td>
+<td>João Pedro</td>
+<td>Junqueira de Jesus</td>
+<td>Chelsea</td>
+<td>Forward</td>
+<td>78</td>
+<td>45</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">482</th>
@@ -534,7 +514,107 @@ ul.task-list li input[type="checkbox"] {
 <td>Man City</td>
 <td>Midfielder</td>
 <td>78</td>
-<td>34</td>
+<td>44</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">403</th>
+<td>330</td>
+<td>Jayden</td>
+<td>Bogle</td>
+<td>Leeds</td>
+<td>Defender</td>
+<td>47</td>
+<td>43</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">474</th>
+<td>391</td>
+<td>Joško</td>
+<td>Gvardiol</td>
+<td>Man City</td>
+<td>Defender</td>
+<td>58</td>
+<td>41</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">151</th>
+<td>504</td>
+<td>Luka</td>
+<td>Vušković</td>
+<td>Brighton</td>
+<td>Defender</td>
+<td>50</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">105</th>
+<td>94</td>
+<td>Kevin</td>
+<td>Schade</td>
+<td>Brentford</td>
+<td>Midfielder</td>
+<td>62</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">7</th>
+<td>8</td>
+<td>Riccardo</td>
+<td>Calafiori</td>
+<td>Arsenal</td>
+<td>Defender</td>
+<td>59</td>
+<td>38</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">161</th>
+<td>40</td>
+<td>Morgan</td>
+<td>Rogers</td>
+<td>Chelsea</td>
+<td>Midfielder</td>
+<td>79</td>
+<td>38</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">334</th>
+<td>286</td>
+<td>Mohamed</td>
+<td>Belloumi</td>
+<td>Hull City</td>
+<td>Midfielder</td>
+<td>52</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">519</th>
+<td>428</td>
+<td>Matheus</td>
+<td>Santos Carneiro da Cunha</td>
+<td>Man Utd</td>
+<td>Midfielder</td>
+<td>79</td>
+<td>36</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">471</th>
+<td>388</td>
+<td>Marc</td>
+<td>Guéhi</td>
+<td>Man City</td>
+<td>Defender</td>
+<td>60</td>
+<td>36</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">176</th>
+<td>154</td>
+<td>Cole</td>
+<td>Palmer</td>
+<td>Chelsea</td>
+<td>Midfielder</td>
+<td>97</td>
+<td>36</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">351</th>
@@ -543,38 +623,18 @@ ul.task-list li input[type="checkbox"] {
 <td>Tzolakis</td>
 <td>Hull City</td>
 <td>Goalkeeper</td>
-<td>46</td>
-<td>34</td>
+<td>47</td>
+<td>36</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">459</th>
-<td>379</td>
-<td>Alexander</td>
-<td>Isak</td>
-<td>Liverpool</td>
-<td>Forward</td>
-<td>91</td>
-<td>33</td>
-</tr>
-<tr class="odd">
 <th data-quarto-table-cell-role="th">480</th>
 <td>397</td>
 <td>Antoine</td>
 <td>Semenyo</td>
 <td>Man City</td>
 <td>Midfielder</td>
-<td>84</td>
-<td>33</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">184</th>
-<td>165</td>
-<td>João Pedro</td>
-<td>Junqueira de Jesus</td>
-<td>Chelsea</td>
-<td>Forward</td>
-<td>77</td>
-<td>33</td>
+<td>83</td>
+<td>36</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">11</th>
@@ -583,78 +643,18 @@ ul.task-list li input[type="checkbox"] {
 <td>Saka</td>
 <td>Arsenal</td>
 <td>Midfielder</td>
-<td>95</td>
-<td>32</td>
+<td>96</td>
+<td>34</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">151</th>
-<td>504</td>
-<td>Luka</td>
-<td>Vušković</td>
-<td>Brighton</td>
-<td>Defender</td>
-<td>50</td>
-<td>32</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">447</th>
-<td>367</td>
-<td>Cody</td>
-<td>Gakpo</td>
-<td>Liverpool</td>
+<th data-quarto-table-cell-role="th">279</th>
+<td>236</td>
+<td>Kiernan</td>
+<td>Dewsbury-Hall</td>
+<td>Everton</td>
 <td>Midfielder</td>
-<td>72</td>
-<td>32</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">334</th>
-<td>286</td>
-<td>Mohamed</td>
-<td>Belloumi</td>
-<td>Hull City</td>
-<td>Midfielder</td>
-<td>51</td>
-<td>31</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">517</th>
-<td>426</td>
-<td>Bruno</td>
-<td>Borges Fernandes</td>
-<td>Man Utd</td>
-<td>Midfielder</td>
-<td>119</td>
-<td>31</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">76</th>
-<td>68</td>
-<td>Marcus</td>
-<td>Tavernier</td>
-<td>Bournemouth</td>
-<td>Midfielder</td>
-<td>61</td>
-<td>31</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">541</th>
-<td>449</td>
-<td>Lewis</td>
-<td>Hall</td>
-<td>Newcastle</td>
-<td>Defender</td>
-<td>53</td>
-<td>31</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">471</th>
-<td>388</td>
-<td>Marc</td>
-<td>Guéhi</td>
-<td>Man City</td>
-<td>Defender</td>
-<td>60</td>
-<td>30</td>
+<td>66</td>
+<td>33</td>
 </tr>
 </tbody>
 </table>
@@ -667,7 +667,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="prior-season-data" class="level2">
 <h2 class="anchored" data-anchor-id="prior-season-data">Prior Season Data</h2>
 <p>The ‘total_points’ column will update each week. What I need for my initial squad selection are players’ total points from the last 2 seasons.</p>
-<div id="9e309d01" class="cell" data-execution_count="5">
+<div id="29a8a0ea" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
@@ -722,9 +722,9 @@ ul.task-list li input[type="checkbox"] {
 <td>Gabriel</td>
 <td>dos Santos Magalhães</td>
 <td>Defender</td>
-<td>80</td>
+<td>79</td>
 <td>326</td>
-<td>4.075000</td>
+<td>4.126582</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
@@ -762,9 +762,9 @@ ul.task-list li input[type="checkbox"] {
 <td>Riccardo</td>
 <td>Calafiori</td>
 <td>Defender</td>
-<td>58</td>
+<td>59</td>
 <td>148</td>
-<td>2.551724</td>
+<td>2.508475</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">8</th>
@@ -782,9 +782,9 @@ ul.task-list li input[type="checkbox"] {
 <td>Benjamin</td>
 <td>White</td>
 <td>Defender</td>
-<td>55</td>
+<td>54</td>
 <td>95</td>
-<td>1.727273</td>
+<td>1.759259</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">10</th>
@@ -802,9 +802,9 @@ ul.task-list li input[type="checkbox"] {
 <td>Bukayo</td>
 <td>Saka</td>
 <td>Midfielder</td>
-<td>95</td>
+<td>96</td>
 <td>284</td>
-<td>2.989474</td>
+<td>2.958333</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">12</th>
@@ -812,9 +812,9 @@ ul.task-list li input[type="checkbox"] {
 <td>Declan</td>
 <td>Rice</td>
 <td>Midfielder</td>
-<td>74</td>
+<td>73</td>
 <td>311</td>
-<td>4.202703</td>
+<td>4.260274</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">13</th>
@@ -822,9 +822,9 @@ ul.task-list li input[type="checkbox"] {
 <td>Eberechi</td>
 <td>Eze</td>
 <td>Midfielder</td>
-<td>63</td>
+<td>62</td>
 <td>261</td>
-<td>4.142857</td>
+<td>4.209677</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">14</th>
@@ -852,9 +852,9 @@ ul.task-list li input[type="checkbox"] {
 <td>Mikel</td>
 <td>Merino Zazón</td>
 <td>Midfielder</td>
-<td>58</td>
+<td>57</td>
 <td>159</td>
-<td>2.741379</td>
+<td>2.789474</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">17</th>
@@ -896,7 +896,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="the-initial-squad" class="level2">
 <h2 class="anchored" data-anchor-id="the-initial-squad">The Initial Squad</h2>
 <p>Before I choose which players I want, how do I choose how many of each position I want, subject to the maximum constraints? I’ll decide based on the average points scored for each position, over the last season:</p>
-<div id="71e4ab62" class="cell" data-execution_count="6">
+<div id="0300bf76" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
 <pre><code>Mean Goalkeeper Points over last season: 72
 Mean Defender Points over last season: 74
@@ -913,7 +913,7 @@ Mean Forward cost: 6.1</code></pre>
 <p>As we only have current cost, which is a dynamic field, the tables below are likely to show different players than the ones I chose at the time of writing. But, the logic is the same.</p>
 <section id="goalkeepers" class="level3">
 <h3 class="anchored" data-anchor-id="goalkeepers">Goalkeepers</h3>
-<div id="2fdf9bcb" class="cell" data-execution_count="7">
+<div id="f989d112" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
@@ -933,6 +933,16 @@ Mean Forward cost: 6.1</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
+<th data-quarto-table-cell-role="th">233</th>
+<td>198</td>
+<td>Dean</td>
+<td>Henderson</td>
+<td>Goalkeeper</td>
+<td>49</td>
+<td>266</td>
+<td>5.428571</td>
+</tr>
+<tr class="even">
 <th data-quarto-table-cell-role="th">269</th>
 <td>226</td>
 <td>Jordan</td>
@@ -941,16 +951,6 @@ Mean Forward cost: 6.1</code></pre>
 <td>55</td>
 <td>293</td>
 <td>5.327273</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">233</th>
-<td>198</td>
-<td>Dean</td>
-<td>Henderson</td>
-<td>Goalkeeper</td>
-<td>50</td>
-<td>266</td>
-<td>5.320000</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">292</th>
@@ -1042,7 +1042,7 @@ Mean Forward cost: 6.1</code></pre>
 </section>
 <section id="defenders" class="level3">
 <h3 class="anchored" data-anchor-id="defenders">Defenders</h3>
-<div id="a3c7ff40" class="cell" data-execution_count="8">
+<div id="65107928" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
@@ -1177,9 +1177,9 @@ Mean Forward cost: 6.1</code></pre>
 <td>James</td>
 <td>Tarkowski</td>
 <td>Defender</td>
-<td>61</td>
+<td>62</td>
 <td>275</td>
-<td>4.508197</td>
+<td>4.435484</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">575</th>
@@ -1227,9 +1227,9 @@ Mean Forward cost: 6.1</code></pre>
 <td>Diogo</td>
 <td>Dalot Teixeira</td>
 <td>Defender</td>
-<td>49</td>
+<td>48</td>
 <td>206</td>
-<td>4.204082</td>
+<td>4.291667</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">167</th>
@@ -1252,14 +1252,14 @@ Mean Forward cost: 6.1</code></pre>
 <td>4.133333</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">60</th>
-<td>611</td>
-<td>Aaron</td>
-<td>Wan-Bissaka</td>
+<th data-quarto-table-cell-role="th">438</th>
+<td>358</td>
+<td>Milos</td>
+<td>Kerkez</td>
 <td>Defender</td>
-<td>45</td>
-<td>185</td>
-<td>4.111111</td>
+<td>53</td>
+<td>219</td>
+<td>4.132075</td>
 </tr>
 </tbody>
 </table>
@@ -1271,7 +1271,7 @@ Mean Forward cost: 6.1</code></pre>
 </section>
 <section id="midfielders" class="level3">
 <h3 class="anchored" data-anchor-id="midfielders">Midfielders</h3>
-<div id="697df58f" class="cell" data-execution_count="9">
+<div id="29cf0bbc" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
@@ -1331,6 +1331,16 @@ Mean Forward cost: 6.1</code></pre>
 <td>4.518519</td>
 </tr>
 <tr class="odd">
+<th data-quarto-table-cell-role="th">480</th>
+<td>397</td>
+<td>Antoine</td>
+<td>Semenyo</td>
+<td>Midfielder</td>
+<td>83</td>
+<td>367</td>
+<td>4.421687</td>
+</tr>
+<tr class="even">
 <th data-quarto-table-cell-role="th">105</th>
 <td>94</td>
 <td>Kevin</td>
@@ -1340,25 +1350,15 @@ Mean Forward cost: 6.1</code></pre>
 <td>274</td>
 <td>4.419355</td>
 </tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">480</th>
-<td>397</td>
-<td>Antoine</td>
-<td>Semenyo</td>
-<td>Midfielder</td>
-<td>84</td>
-<td>367</td>
-<td>4.369048</td>
-</tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">448</th>
 <td>368</td>
 <td>Dominik</td>
 <td>Szoboszlai</td>
 <td>Midfielder</td>
-<td>70</td>
+<td>69</td>
 <td>303</td>
-<td>4.328571</td>
+<td>4.391304</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">27</th>
@@ -1381,16 +1381,6 @@ Mean Forward cost: 6.1</code></pre>
 <td>4.290323</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">161</th>
-<td>40</td>
-<td>Morgan</td>
-<td>Rogers</td>
-<td>Midfielder</td>
-<td>77</td>
-<td>330</td>
-<td>4.285714</td>
-</tr>
-<tr class="odd">
 <th data-quarto-table-cell-role="th">582</th>
 <td>480</td>
 <td>Morgan</td>
@@ -1399,6 +1389,16 @@ Mean Forward cost: 6.1</code></pre>
 <td>80</td>
 <td>342</td>
 <td>4.275000</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">12</th>
+<td>13</td>
+<td>Declan</td>
+<td>Rice</td>
+<td>Midfielder</td>
+<td>73</td>
+<td>311</td>
+<td>4.260274</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">452</th>
@@ -1421,16 +1421,26 @@ Mean Forward cost: 6.1</code></pre>
 <td>4.231884</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">12</th>
-<td>13</td>
-<td>Declan</td>
-<td>Rice</td>
+<th data-quarto-table-cell-role="th">13</th>
+<td>14</td>
+<td>Eberechi</td>
+<td>Eze</td>
 <td>Midfielder</td>
-<td>74</td>
-<td>311</td>
-<td>4.202703</td>
+<td>62</td>
+<td>261</td>
+<td>4.209677</td>
 </tr>
 <tr class="odd">
+<th data-quarto-table-cell-role="th">161</th>
+<td>40</td>
+<td>Morgan</td>
+<td>Rogers</td>
+<td>Midfielder</td>
+<td>79</td>
+<td>330</td>
+<td>4.177215</td>
+</tr>
+<tr class="even">
 <th data-quarto-table-cell-role="th">467</th>
 <td>237</td>
 <td>Iliman</td>
@@ -1439,16 +1449,6 @@ Mean Forward cost: 6.1</code></pre>
 <td>58</td>
 <td>242</td>
 <td>4.172414</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">13</th>
-<td>14</td>
-<td>Eberechi</td>
-<td>Eze</td>
-<td>Midfielder</td>
-<td>63</td>
-<td>261</td>
-<td>4.142857</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">547</th>
@@ -1500,7 +1500,7 @@ Mean Forward cost: 6.1</code></pre>
 </section>
 <section id="forwards" class="level3">
 <h3 class="anchored" data-anchor-id="forwards">Forwards</h3>
-<div id="430017bb" class="cell" data-execution_count="10">
+<div id="b1564a97" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
@@ -1575,9 +1575,9 @@ Mean Forward cost: 6.1</code></pre>
 <td>João Pedro</td>
 <td>Junqueira de Jesus</td>
 <td>Forward</td>
-<td>77</td>
+<td>78</td>
 <td>303</td>
-<td>3.935065</td>
+<td>3.884615</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">254</th>
@@ -1610,16 +1610,6 @@ Mean Forward cost: 6.1</code></pre>
 <td>3.433962</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">554</th>
-<td>464</td>
-<td>Yoane</td>
-<td>Wissa</td>
-<td>Forward</td>
-<td>62</td>
-<td>212</td>
-<td>3.419355</td>
-</tr>
-<tr class="odd">
 <th data-quarto-table-cell-role="th">418</th>
 <td>346</td>
 <td>Dominic</td>
@@ -1628,6 +1618,16 @@ Mean Forward cost: 6.1</code></pre>
 <td>60</td>
 <td>205</td>
 <td>3.416667</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">554</th>
+<td>464</td>
+<td>Yoane</td>
+<td>Wissa</td>
+<td>Forward</td>
+<td>63</td>
+<td>212</td>
+<td>3.365079</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">567</th>
@@ -1645,9 +1645,9 @@ Mean Forward cost: 6.1</code></pre>
 <td>Alexander</td>
 <td>Isak</td>
 <td>Forward</td>
-<td>91</td>
+<td>90</td>
 <td>252</td>
-<td>2.769231</td>
+<td>2.800000</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">491</th>
@@ -2143,8 +2143,8 @@ Mean Forward cost: 6.1</code></pre>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./gw2_5.html" class="pagination-link" aria-label="GW 2-5: The Warm Up">
-        <span class="nav-page-text">GW 2-5: The Warm Up</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./gw2_6.html" class="pagination-link" aria-label="GW 2-6: The Warm Up">
+        <span class="nav-page-text">GW 2-6: The Warm Up</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
