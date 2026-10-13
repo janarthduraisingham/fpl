@@ -28,7 +28,6 @@ Let's go back to Benjamin White and compute his EWMA-0.5 and EWMA-0.25 as well a
 from fpl.ewmac import points_ts, ewmac_ts
 
 r = ewmac_ts(pid=10, short_alpha=0.5, long_alpha=0.25)
-#print(r['df'])
 r['plot']
 ```
 
@@ -41,7 +40,7 @@ Let's get the players with the highest simple moving 4 week average, and conside
 from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
 
 r = ewmac_all(gw=6)
-print(r.head(20))
+print(r.head(20).to_string(index=False))
 ```
 
 Removing anyone with a negative EWMAC(0.5, 0.25)...
@@ -49,7 +48,7 @@ Removing anyone with a negative EWMAC(0.5, 0.25)...
 #| echo: false
 from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
 
-print(r[r['ewmac_0.5_0.25']>=0].head(20))
+print(r[r['ewmac_0.5_0.25']>=0].head(20).to_string(index=False))
 ```
 
 Now we'll look at our team
@@ -71,5 +70,101 @@ print(r[r['second_name'].isin(['Verbruggen',
 'Mateta',
 'Damsgaard',
 'Welbeck',
-'Guéhi'])])
+'Guéhi'])].to_string(index=False))
 ```
+
+## Transfers
+
+
+### Tap-ins
+I have 5 transfers to play with, but I don't have to use them all. First thing that stands out is that I have two forwards with a very low SMA4, and Mateta has a negative EWMAC. So first step is to find at least one new forward. Joao Pedro seems to be the best contender - the forward with the highest SMA4 and a positive EWMAC. I want to take a closer look at both of them before I set anything in stone.
+
+#### Mateta
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=223, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+Very happy to say goodbye to Mateta based on this.
+
+#### Joao Pedro
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=165, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+A little choppy, but since I don't intend to hold players for anything less than a few weeks, this should be fine.
+
+Happy to sell for 6.3 and buy at 7.8 - that's why I made my initial squad cheap.
+
+### A tougher call
+For my next transfer, do I transfer my second-from-bottom player, a forward with a positive EWMAC, or my third-from-bottom-player, a midfielder with a negative EWMAC. Given that there aren't any more forwards too high up on the list to transfer in, and given that Szoboszlai has a EWMAC is nearly -1, my next transfer will him. I'll choose Semenyo to replace him - second to Groß in terms of SMA4, but a better EWMAC. Again, let's take a look at both of them more closely first.
+
+#### Szoboszlai
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=368, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+An easy goodbye.
+
+#### Semenyo
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=397, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+This is a little harder for me to interpret. The trend is good but it's definitely warped by a really good week. I'll check the next best midfielder to be safe, but otherwise I'm not too concerned. Let's try McGinn...
+
+#### McGinn
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=45, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+Much better. I'll take McGinn over Semenyo in the spirit of momentum. 
+
+Selling 6.9m and buying at 5.4m means I even make a profit after transfer fees. Result.
+
+# Easy defender win
+Dropping Williams for De Cuyper looks like a no-brainer
+
+#### Williams
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=469, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+
+#### De Cuyper
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=115, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+Easy yes. Very Happy to buy at 5.1m and sell at 5.0m.
+
+### Summary
+I don't want to be too heavy handed this early on so we'll stop at three transfers.
+
+- Sell Mateta for 6.3m and buy Joao Pedro for 7.8m
+- Sell Szoboszlai for 6.9m and buy McGinn for 5.4m
+- Sell Williams for 5.0m and buy De Cuyper for 5.1m
+
+After transfer fees, this leaves me with a net cashflow of negative 1.4m, which averages under my target of 0.5m per transfer. Fingers crossed for GW7...
