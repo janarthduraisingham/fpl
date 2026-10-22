@@ -1,0 +1,12 @@
+{
+  "hash": "9c9450c72331b643d92044fe804499cb",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "# The Beautiful Game {.unnumbered}\n\nThis is my journey of playing FPL with 0 ball knowledge and a bit of Python knowledge.\n\n::: {#f2f41385 .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=585 height=430}\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
