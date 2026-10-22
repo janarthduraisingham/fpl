@@ -24,7 +24,7 @@ format:
   #  documentclass: scrreprt
 
 execute:
-  freeze: auto
+  freeze: false
 
 
 
