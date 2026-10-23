@@ -99,7 +99,7 @@ def ewmac_all(gw):
                     right_on='PID'
         ).round({"ewmac_0.5_0.25":1})
 
-        df.to_csv(path)
+        df.to_csv(path, index=False)
     
     return(df)
 
