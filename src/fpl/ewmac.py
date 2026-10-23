@@ -1,5 +1,6 @@
 import pandas as pd
 from pyprojroot import here
+from pathlib import Path
 import seaborn as sns
 import matplotlib.pyplot as plt
 import json
@@ -55,6 +56,7 @@ def ewmac_ts(pid, short_alpha=0.5, long_alpha=0.25):
             value_name= 'value'
         )
     ax = sns.lineplot(data=df_tidy, x='GW', y='value', hue='statistic')
+    ax.set_title(df['second_name'].iloc[0])
     plot = ax.figure
     plt.close(plot)
 
@@ -67,30 +69,40 @@ def ewmac_ts(pid, short_alpha=0.5, long_alpha=0.25):
 
 def ewmac_all(gw):
 
-    rows = []
+    path = here(Path("data/ewmac_all/" + "ewmac_all_" + str(gw) + ".csv"))
 
-    for pid in players()['PID']:
-        #print(pid)
-        df = ewmac_ts(pid=pid,
-                      short_alpha=0.5,
-                      long_alpha=0.25)['df']
-        df = df[df['GW']==gw]
-        rows.append(df)
+    if path.is_file():
 
-    df = pd.concat(rows, ignore_index=True).sort_values(
-        by=['sma_4', 'ewmac_0.5_0.25'],
-        ascending=[False, False]
-    )[
-        ['PID', 'second_name', 'position_name', 'sma_4', 'ewmac_0.5_0.25']
-    ]
-    df = pd.merge(df,
-                  players()[['PID', 'now_cost']],
-                  left_on='PID',
-                  right_on='PID'
-    ).round({"ewmac_0.5_0.25":1})
+        df = pd.read_csv(path)
+
+    else:
+
+        rows = []
+
+        for pid in players()['PID']:
+            #print(pid)
+            df = ewmac_ts(pid=pid,
+                        short_alpha=0.5,
+                        long_alpha=0.25)['df']
+            df = df[df['GW']==gw]
+            rows.append(df)
+
+        df = pd.concat(rows, ignore_index=True).sort_values(
+            by=['sma_4', 'ewmac_0.5_0.25'],
+            ascending=[False, False]
+        )[
+            ['PID', 'second_name', 'position_name', 'sma_4', 'ewmac_0.5_0.25']
+        ]
+        df = pd.merge(df,
+                    players()[['PID', 'now_cost']],
+                    left_on='PID',
+                    right_on='PID'
+        ).round({"ewmac_0.5_0.25":1})
+
+        df.to_csv(path)
     
     return(df)
 
 if __name__ == '__main__':
     #print(ewmac_df'])
-    print(ewmac_all(gw=6).head())
+    ewmac_all(gw=7)

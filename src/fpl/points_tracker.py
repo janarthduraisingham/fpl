@@ -11,7 +11,7 @@ def points_tracker(gw):
         value_name= 'points'
     )
 
-    ax = sns.barplot(data=points, x='gw', y='points', hue = 'team')
+    ax = sns.lineplot(data=points, x='gw', y='points', hue = 'team')
     plt.show()
 
 
