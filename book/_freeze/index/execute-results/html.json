@@ -2,9 +2,9 @@
   "hash": "cc4b678f1ce900595759ff0d455784ad",
   "result": {
     "engine": "jupyter",
-    "markdown": "# The Beautiful Game {.unnumbered}\n\nThis is my journey of playing FPL with 0 ball knowledge and a bit of Python knowledge.\n\n::: {#b62f0be9 .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=585 height=430}\n:::\n:::\n\n\n",
+    "markdown": "# The Beautiful Game {.unnumbered}\n\nThis is my journey of playing FPL with 0 ball knowledge and a bit of Python knowledge.\n\n::: {#25d31224 .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=594 height=435}\n:::\n:::\n\n\n",
     "supporting": [
-      "index_files\\figure-html"
+      "index_files"
     ],
     "filters": [],
     "includes": {}
