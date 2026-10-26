@@ -12,6 +12,8 @@ def points_tracker(gw):
     )
 
     ax = sns.lineplot(data=points, x='gw', y='points', hue = 'team')
+    ax.set_ylim(0, 100)
     plt.show()
 
-
+if __name__ == '__main__':
+    points_tracker(8)
