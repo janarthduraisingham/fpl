@@ -8,9 +8,10 @@ def dataloader():
 
     base_url = 'https://fantasy.premierleague.com/api/'
 
-    refresh_choice = input("Refresh player data? (y/n) ")
+    player_refresh_choice = input("Refresh player data? (y/n) ")
+    gw_refresh_choice = input("Refresh gameweek data? (y/n) ")
 
-    if refresh_choice not in ["Y", "y"]:
+    if player_refresh_choice not in ["Y", "y"]:
         print("WARNING: Player data will not refresh")
 
     else:
@@ -67,9 +68,9 @@ def dataloader():
             with open('data/element_summary/element_summary_' + str(pid) + '.json', 'w') as f:
                 json.dump(pid_gameweek_history, f)
 
-    refresh_gw_choice = input("Refresh gameweek data? (y/n) ")
     
-    if refresh_gw_choice not in ["Y", "y"]:
+    
+    if gw_refresh_choice not in ["Y", "y"]:
         print("WARNING: gammeweek data will not refresh")
 
     else:
