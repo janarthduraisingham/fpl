@@ -6,5 +6,5 @@ This is my journey of playing FPL with 0 ball knowledge and a bit of Python know
 #| echo: false
 from fpl.points_tracker import points_tracker
 
-points_tracker(7)
+points_tracker(8)
 ```
