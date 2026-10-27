@@ -1,0 +1,46 @@
+# GW 9 {.unnumbered}
+
+Same drill.
+
+## Ranking players by SMA(4) and EWMAC(0.5, 0.25)
+Let's get the players with the highest simple moving 4 week average, and consider buying those with large EWMAC(0.5, 0.25).
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+r = ewmac_all(gw=8)
+print(r.head(20).to_string(index=False))
+```
+
+Removing anyone with a negative EWMAC(0.5, 0.25)...
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+print(r[r['ewmac_0.5_0.25']>=0].head(20).to_string(index=False))
+```
+
+Now we'll look at our team
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+print(r[r['second_name'].isin(['Verbruggen',
+'Mitchell',
+'Van Hecke',
+'Tarkowski',
+'De Cuyper',
+'McGinn',
+'Rice',
+'Manzambi',
+'Iwobi',
+'Calvert-Lewin',
+'Leno',
+'Junqueira de Jesus',
+'Damsgaard',
+'Kostoulas',
+'Guéhi'])].to_string(index=False))
+```
+
+## TRANSFERS
+Relatively happy to keep things as they are. All non-benched players are above 3 SMA. Rather save the transfers this week. Will be useful to see how the exact same squad performs in successive weeks.
