@@ -1,0 +1,111 @@
+# GW 9 {.unnumbered}
+
+Same drill.
+
+## Ranking players by SMA(4) and EWMAC(0.5, 0.25)
+Let's get the players with the highest simple moving 4 week average, and consider buying those with large EWMAC(0.5, 0.25).
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+r = ewmac_all(gw=8)
+print(r.head(20).to_string(index=False))
+```
+
+Removing anyone with a negative EWMAC(0.5, 0.25)...
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+print(r[r['ewmac_0.5_0.25']>=0].head(20).to_string(index=False))
+```
+
+Now we'll look at our team
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
+
+print(r[r['second_name'].isin(['Verbruggen',
+'Mitchell',
+'Van Hecke',
+'Tarkowski',
+'De Cuyper',
+'McGinn',
+'Rice',
+'Manzambi',
+'Iwobi',
+'Calvert-Lewin',
+'Leno',
+'Junqueira de Jesus',
+'Damsgaard',
+'Kostoulas',
+'Guéhi'])].to_string(index=False))
+```
+
+## TBC TRANSFERS
+
+### Formation change?
+My worst two players are on the bench anyway, so not a huge cause for concern for now. Kostoulas is looking very tempting. Is it time to change my formation? What if sell Welbeck for Kostoulas and then bench Mitchell?:
+
+#### Mitchell
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=204, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+
+#### Welbeck
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=136, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+#### Kostoulas
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=138, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+
+Happy to Sell Welbeck for 5.8 and buy Kostoulas for 5.7. I'll then bench Mitchell to play Kostoulas.
+
+
+### Anderson for Manzambi?
+
+#### Anderson
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=481, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+
+#### Manzambi
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=53, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+Happy to sell Anderson for 6.3 and buy Manzambi for 6.0
+
+
+## Summary
+
+- Sell Welbeck for 5.8 and buy Kostoulas for 5.7
+- Sell Anderson for 6.3 and buy Manzambi for 6.0
+
+Net cashflow of negative 0.6m for 2 transfers. Good, this is under 0.5m each.
