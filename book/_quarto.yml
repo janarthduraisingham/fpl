@@ -13,6 +13,7 @@ book:
     - gw7.qmd
     - gw8.qmd
     - gw9.qmd
+    - gw10.qmd
 
 bibliography: references.bib
 
