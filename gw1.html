@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-23b890f5a05820f21dcc4ff2c2b23077.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4f67ab1e4efc86feb5e21e0983fc9301.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -159,6 +159,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">GW 9</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gw10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GW 10</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -216,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
 <p>First, a look at the data we have available from the FPL API.</p>
 <section id="players" class="level3">
 <h3 class="anchored" data-anchor-id="players">Players</h3>
-<div id="9a66466d" class="cell" data-execution_count="1">
+<div id="dfdb2945" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
@@ -311,7 +317,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="teams" class="level3">
 <h3 class="anchored" data-anchor-id="teams">Teams</h3>
-<div id="155abd5e" class="cell" data-execution_count="2">
+<div id="55afc53c" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
@@ -406,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="positions" class="level3">
 <h3 class="anchored" data-anchor-id="positions">Positions</h3>
-<div id="c8d177a4" class="cell" data-execution_count="3">
+<div id="5ec8b1b1" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
@@ -450,7 +456,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="combined-data" class="level3">
 <h3 class="anchored" data-anchor-id="combined-data">Combined data</h3>
 <p>We’ll need to combine this data to make use of it, and also declutter what I won’t be using. To keep things simple, I’ll only be using historical points scored to decide how to change my squad.</p>
-<div id="3af90adb" class="cell" data-execution_count="4">
+<div id="0e8a3474" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
@@ -680,7 +686,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="prior-season-data" class="level2">
 <h2 class="anchored" data-anchor-id="prior-season-data">Prior Season Data</h2>
 <p>The ‘total_points’ column will update each week. What I need for my initial squad selection are players’ total points from the last 2 seasons.</p>
-<div id="eadee784" class="cell" data-execution_count="5">
+<div id="d762188d" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
@@ -909,7 +915,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="the-initial-squad" class="level2">
 <h2 class="anchored" data-anchor-id="the-initial-squad">The Initial Squad</h2>
 <p>Before I choose which players I want, how do I choose how many of each position I want, subject to the maximum constraints? I’ll decide based on the average points scored for each position, over the last season:</p>
-<div id="463bbbc8" class="cell" data-execution_count="6">
+<div id="4a0d83cf" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
 <pre><code>Mean Goalkeeper Points over last season: 72
 Mean Defender Points over last season: 74
@@ -926,7 +932,7 @@ Mean Forward cost: 6.1</code></pre>
 <p>As we only have current cost, which is a dynamic field, the tables below are likely to show different players than the ones I chose at the time of writing. But, the logic is the same.</p>
 <section id="goalkeepers" class="level3">
 <h3 class="anchored" data-anchor-id="goalkeepers">Goalkeepers</h3>
-<div id="fb5aa592" class="cell" data-execution_count="7">
+<div id="ece9529c" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
@@ -1055,7 +1061,7 @@ Mean Forward cost: 6.1</code></pre>
 </section>
 <section id="defenders" class="level3">
 <h3 class="anchored" data-anchor-id="defenders">Defenders</h3>
-<div id="82dd9386" class="cell" data-execution_count="8">
+<div id="3c777d89" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
@@ -1284,7 +1290,7 @@ Mean Forward cost: 6.1</code></pre>
 </section>
 <section id="midfielders" class="level3">
 <h3 class="anchored" data-anchor-id="midfielders">Midfielders</h3>
-<div id="b43da02e" class="cell" data-execution_count="9">
+<div id="efc3d8fa" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
@@ -1513,7 +1519,7 @@ Mean Forward cost: 6.1</code></pre>
 </section>
 <section id="forwards" class="level3">
 <h3 class="anchored" data-anchor-id="forwards">Forwards</h3>
-<div id="2b66181f" class="cell" data-execution_count="10">
+<div id="88fe52b5" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
