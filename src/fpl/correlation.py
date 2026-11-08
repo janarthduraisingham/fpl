@@ -6,22 +6,22 @@ from fpl.player_data import teams
 def get_correlation(pid1, pid2, gw):
 
     # Get player points timeseries
-    teams_df = teams()[['id', 'name']]
-    df1 = points_ts(pid1)['df'].merge(
-        teams_df,
-        left_on = 'team',
-        right_on = 'id'
-    )[['GW', 'PID', 'second_name', 'total_points', 'element_type', 'team']]
+    #teams_df = teams()[['id', 'name']]
+    df1 = points_ts(pid1)['df']#.merge(
+        #teams_df,
+        #left_on = 'team',
+        #right_on = 'id'
+    #)[['GW', 'PID', 'second_name', 'total_points', 'element_type', 'team']]
 
-    df1 = df1[df1['GW']<=gw]
+    df1 = df1[df1['GW']<=gw][['GW', 'PID', 'second_name', 'total_points', 'element_type', 'team']]
 
-    df2 = points_ts(pid2)['df'].merge(
-            teams_df,
-            left_on = 'team',
-            right_on = 'id'
-        )[['GW', 'PID', 'second_name', 'total_points', 'element_type', 'team']]
+    df2 = points_ts(pid2)['df']#.merge(
+    #        teams_df,
+    #        left_on = 'team',
+    #        right_on = 'id'
+    #    )
     
-    df2 = df2[df2['GW']<=gw]
+    df2 = df2[df2['GW']<=gw][['GW', 'PID', 'second_name', 'total_points', 'element_type', 'team']]
 
     x = df1.set_index("GW")["total_points"].fillna(0)
     y = df2.set_index("GW")["total_points"].fillna(0)
