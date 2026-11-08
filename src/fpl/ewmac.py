@@ -17,7 +17,7 @@ def points_ts(pid):
     ]
 
     # Join names, teams, positions
-    names = players()[['PID', 'first_name', 'second_name', 'element_type']]
+    names = players()[['PID', 'first_name', 'second_name', 'element_type', 'team']]
 
     df = pd.merge(
         left = df,
