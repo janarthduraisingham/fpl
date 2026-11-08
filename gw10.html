@@ -36,6 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./gw11.html" rel="next">
 <link href="./gw9.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -161,6 +162,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">GW 10</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gw11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GW 11</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -208,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="ranking-players-by-sma4-and-ewmac0.5-0.25" class="level2">
 <h2 class="anchored" data-anchor-id="ranking-players-by-sma4-and-ewmac0.5-0.25">Ranking players by SMA(4) and EWMAC(0.5, 0.25)</h2>
 <p>Let’s get the players with the highest simple moving 4 week average, and consider buying those with large EWMAC(0.5, 0.25).</p>
-<div id="c3ef4601" class="cell" data-execution_count="1">
+<div id="2e13f1db" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code> PID                             second_name position_name  sma_4  ewmac_0.5_0.25  now_cost
   31                             Konsa Ngoyo      Defender   9.25             2.0        47
@@ -234,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Removing anyone with a negative EWMAC(0.5, 0.25)…</p>
-<div id="2a995c20" class="cell" data-execution_count="2">
+<div id="cb18191a" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code> PID                             second_name position_name  sma_4  ewmac_0.5_0.25  now_cost
   31                             Konsa Ngoyo      Defender   9.25             2.0        47
@@ -260,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Now we’ll look at our team</p>
-<div id="6d679e77" class="cell" data-execution_count="3">
+<div id="46eabbf9" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code> PID        second_name position_name  sma_4  ewmac_0.5_0.25  now_cost
  115          De Cuyper      Defender   7.75            -0.3        54
@@ -287,7 +294,7 @@ ul.task-list li input[type="checkbox"] {
 <p>I think Guehi needs to go. Considering Konsa or Gabriel:</p>
 <section id="guehi" class="level4">
 <h4 class="anchored" data-anchor-id="guehi">Guehi</h4>
-<div id="dd9fc78a" class="cell" data-execution_count="4">
+<div id="d6206d82" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 <figure class="figure">
@@ -299,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="konsa" class="level4">
 <h4 class="anchored" data-anchor-id="konsa">Konsa</h4>
-<div id="5aae4814" class="cell" data-execution_count="5">
+<div id="b1c1664b" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <figure class="figure">
@@ -311,7 +318,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="gabriel" class="level4">
 <h4 class="anchored" data-anchor-id="gabriel">Gabriel</h4>
-<div id="0d276a45" class="cell" data-execution_count="6">
+<div id="e41a2ff7" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 <figure class="figure">
@@ -328,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Joao Pedro has an EWMA of -2. Evanilson or Jackson?:</p>
 <section id="joao-pedro" class="level4">
 <h4 class="anchored" data-anchor-id="joao-pedro">Joao Pedro</h4>
-<div id="9b292f3e" class="cell" data-execution_count="7">
+<div id="9ffb501b" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <figure class="figure">
@@ -340,7 +347,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="evanilson" class="level4">
 <h4 class="anchored" data-anchor-id="evanilson">Evanilson</h4>
-<div id="68435e0c" class="cell" data-execution_count="8">
+<div id="795313fb" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 <figure class="figure">
@@ -352,7 +359,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="jackson" class="level4">
 <h4 class="anchored" data-anchor-id="jackson">Jackson</h4>
-<div id="5ab389d1" class="cell" data-execution_count="9">
+<div id="5baf95b7" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 <figure class="figure">
@@ -366,7 +373,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="mcginn" class="level4">
 <h4 class="anchored" data-anchor-id="mcginn">McGinn</h4>
-<div id="fb4f9aa3" class="cell" data-execution_count="10">
+<div id="48cd5389" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <figure class="figure">
@@ -378,7 +385,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="kostoulas" class="level4">
 <h4 class="anchored" data-anchor-id="kostoulas">Kostoulas</h4>
-<div id="d9169bd2" class="cell" data-execution_count="11">
+<div id="d2d74d5b" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 <figure class="figure">
@@ -890,6 +897,9 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./gw11.html" class="pagination-link" aria-label="GW 11">
+        <span class="nav-page-text">GW 11</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
