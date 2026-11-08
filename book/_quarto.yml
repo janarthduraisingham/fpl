@@ -14,6 +14,7 @@ book:
     - gw8.qmd
     - gw9.qmd
     - gw10.qmd
+    - gw11.qmd
 
 bibliography: references.bib
 
