@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from fpl.player_data import initial_squad_tracker
 
-def points_tracker(gw):
+def points_tracker(gw, cumulative=False):
     points = pd.read_csv(here('data/points_tracker.csv')).merge(
         initial_squad_tracker()[['GW', 'total_points']],
         left_on = "gw",
@@ -12,6 +12,11 @@ def points_tracker(gw):
     ).rename(
         columns = {'total_points':'initial 15'}
     )
+
+    if cumulative == True:
+        points['me'] = points['me'].cumsum()
+        points['average'] = points['average'].cumsum()
+        points['initial 15'] = points['initial 15'].cumsum()
 
     points = points[points['gw']<=gw].melt(
         id_vars = ['gw', 'GW'],
@@ -25,7 +30,12 @@ def points_tracker(gw):
 
     ax = sns.lineplot(data=points, x='gw', y='points', hue = 'team', size='team',
                       sizes = sizes)
-    ax.set_ylim(0, 100)
+    
+    if cumulative == False:
+        ax.set_ylim(0, 100)
+    else:
+        ax.set_ylim(0, 75*gw)
+
     plt.show()
     
 
