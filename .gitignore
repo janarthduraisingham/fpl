@@ -234,3 +234,8 @@ _environment
 
 
 !data/points_tracker.csv
+!data/correlations/
+!data/correlations/**
+vironment
+/.quarto/
+**/*.quarto_ipynb
