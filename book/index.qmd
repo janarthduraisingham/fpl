@@ -8,3 +8,5 @@ from fpl.points_tracker import points_tracker
 
 points_tracker(10)
 ```
+
+To counteract that I don't know who I would've captained in my initial squad each week, I'm including the bench. This seems roughly fair. If I can beat the initial 15 line, that feels like a win.

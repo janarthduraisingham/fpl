@@ -1,10 +1,10 @@
 {
-  "hash": "df1bcd50ca26632a3bdf0450aa9ce5c6",
+  "hash": "3ba2146cde6b71a1e27856904077a898",
   "result": {
     "engine": "jupyter",
-    "markdown": "# The Beautiful Game {.unnumbered}\n\nThis is my journey of playing FPL with 0 ball knowledge and a bit of Python knowledge.\n\n::: {#93ed281a .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=594 height=435}\n:::\n:::\n\n\n",
+    "markdown": "# The Beautiful Game {.unnumbered}\n\nThis is my journey of playing FPL with 0 ball knowledge and a bit of Python knowledge.\n\n::: {#f3a5bb4d .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=594 height=435}\n:::\n:::\n\n\nTo counteract that I don't know who I would've captained in my initial squad each week, I'm including the bench. This seems roughly fair. If I can beat the initial 15 line, that feels like a win\n\n",
     "supporting": [
-      "index_files"
+      "index_files\\figure-html"
     ],
     "filters": [],
     "includes": {}
