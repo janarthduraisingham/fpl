@@ -1,6 +1,6 @@
 # International Break {.unnumbered}
 
-Using this break to investigate a thought, or worry, that occurred to me - is it generally a riskier idea to pick players from the same team? Will it make my points more volatile, based on the idea that scores for players in the same team might be more positively correlated?
+I'm using this break to investigate a thought, or worry, that occurred to me - is it generally a riskier idea to pick players from the same team? Will it make my points more volatile, based on the idea that scores for players in the same team might be more positively correlated?
 
 ## Correlations
 
