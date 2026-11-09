@@ -76,7 +76,11 @@ def all_correlations(gw):
 
 def plot_all_correlations(gw,
                           same_team = 0,
-                          same_position = 0):
+                          same_position = 0,
+                          different_team = 0,
+                          different_position = 0,
+                          force_position = 0,
+                          stat='count'):
 
       filepath = here("output/correlations_same_team_"+str(same_team)+"_same_position_"+str(same_position)+".png")
 
@@ -86,9 +90,23 @@ def plot_all_correlations(gw,
       if same_team == 1:
               df = df[df['team_x'] == df['team_y']]
 
+      if same_position == 1:
+             df = df[df['element_type_x'] == df['element_type_y']]
+
+
+      if different_team == 1:
+          df = df[df['team_x'] != df['team_y']]
+      
+      if different_position == 1:
+          df = df[df['element_type_x'] != df['element_type_y']]
+
+      if not force_position == 0:
+            df = df[df['element_type_x']==force_position]
+            df = df[df['element_type_y']==force_position]
+
       ax = sns.histplot(data=df,
                           x="correlation",
-                          stat='density')
+                          stat=stat)
       plot = ax.figure
       plot.savefig(filepath)
       #plt.show()
@@ -98,11 +116,16 @@ def plot_all_correlations(gw,
               'df' : df})
 
 
-def plot_multiple_correlations(same_team_1 = 0, same_position_1 = 0, label_1 = 'all correlations',
-                               same_team_2 = 1, same_position_2 = 0, label_2 = 'intra-team correlations'):
+def plot_multiple_correlations(label_1, label_2, same_team_1=0, same_position_1=0, different_team_1=0, different_position_1=0,
+                               same_team_2=0, same_position_2=0, different_team_2=0, different_position_2=0,
+                               force_position = 0):
 
-      df1 = plot_all_correlations(gw=10, same_team = same_team_1, same_position = same_position_1)['df']
-      df2 = plot_all_correlations(gw=10, same_team = same_team_2, same_position = same_position_2)['df']
+      df1 = plot_all_correlations(gw=10, same_team = same_team_1, same_position = same_position_1,
+                                  different_team=different_team_1, different_position=different_position_1,
+                                  force_position=force_position)['df']
+      df2 = plot_all_correlations(gw=10, same_team = same_team_2, same_position = same_position_2,
+                                 different_team=different_team_2, different_position=different_position_2,
+                                 force_position=force_position)['df']
 
       fig, ax = plt.subplots(figsize=(8, 5))
 
@@ -110,8 +133,10 @@ def plot_multiple_correlations(same_team_1 = 0, same_position_1 = 0, label_1 = '
       sns.histplot(data=df2, stat='density', x="correlation", ax=ax, color="tab:orange", alpha=0.5, label=label_2)
 
       ax.legend()
-      plt.show()
+      #plt.show()
       plt.close(fig)
+
+      return(fig)
 
 if __name__ == '__main__':
     print("running...")

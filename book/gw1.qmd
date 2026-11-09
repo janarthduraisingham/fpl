@@ -32,7 +32,7 @@ teams()[['name', 'played', 'points', 'position']].head(10)
 
 ```{python}
 #| echo: false
-positions()[['singular_name', 'squad_max_play']].head(10)
+positions()[['id', 'singular_name', 'squad_max_play']].head(10)
 ```
 
 ### Combined data
