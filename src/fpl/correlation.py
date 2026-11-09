@@ -7,21 +7,41 @@ def get_correlation(pid1, pid2, gw):
 
     # Get player points timeseries
     #teams_df = teams()[['id', 'name']]
-    df1 = points_ts(pid1)['df']#.merge(
+    #df1 = points_ts(pid1)['df']#.merge(
         #teams_df,
         #left_on = 'team',
         #right_on = 'id'
     #)[['GW', 'PID', 'second_name', 'total_points', 'element_type', 'team']]
 
-    df1 = df1[df1['GW']<=gw][['GW', 'PID', 'second_name', 'total_points', 'element_type', 'team']]
+    with open(here("data/element_summary/element_summary_"+str(pid1)+".json")) as f:
+            data = json.load(f)
+    
+    df1 = pd.json_normalize(data['history'])[
+        ['element', 'total_points', 'round']
+    ].rename(
+          columns={'round':'GW'}
+    )
 
-    df2 = points_ts(pid2)['df']#.merge(
+    #df1 = df1[df1['GW']<=gw][['GW', 'PID', 'second_name', 'total_points', 'element_type', 'team']]
+
+    with open(here("data/element_summary/element_summary_"+str(pid2)+".json")) as f:
+                data = json.load(f)
+        
+    df2 = pd.json_normalize(data['history'])[
+        ['element', 'total_points', 'round']
+    ].rename(
+          columns={'round':'GW'}
+    )
+
+    df1 = df1[df1['GW']<=gw]#[['GW', 'PID', 'second_name', 'total_points', 'element_type', 'team']]
+
+    #df2 = points_ts(pid2)['df']#.merge(
     #        teams_df,
     #        left_on = 'team',
     #        right_on = 'id'
     #    )
     
-    df2 = df2[df2['GW']<=gw][['GW', 'PID', 'second_name', 'total_points', 'element_type', 'team']]
+    df2 = df2[df2['GW']<=gw]#[['GW', 'PID', 'second_name', 'total_points', 'element_type', 'team']]
 
     x = df1.set_index("GW")["total_points"].fillna(0)
     y = df2.set_index("GW")["total_points"].fillna(0)
@@ -33,7 +53,7 @@ def get_correlation(pid1, pid2, gw):
 
 def all_correlations(gw):
 
-    players_list = players()['PID']
+    players_list = players()['PID'][0:100]
 
     rows = [get_correlation(pid1, pid2, gw=gw)
             for pid1 in players_list
