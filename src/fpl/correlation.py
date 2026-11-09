@@ -53,7 +53,7 @@ def get_correlation(pid1, pid2, gw):
 
 def all_correlations(gw):
 
-    players_list = players()['PID'][0:100]
+    players_list = players()['PID']
 
     rows = [get_correlation(pid1, pid2, gw=gw)
             for pid1 in players_list
