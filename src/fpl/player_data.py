@@ -108,70 +108,51 @@ def last_1_years_points():
 'points_2yr',
 'points_per_cost_2yr']])
 
-#print(last_2_yrs_points(53))
 
-#i = 0
-#for pid in pids:
-#    i+=1
-#    print(str(i) + " pid: " + str(pid) + " " + str(last_2_yrs_points(pid)))
+def points(pid):
+      with open(here("data/element_summary/element_summary_"+str(pid)+".json")) as f:
+                      data = json.load(f)
+
+                      df = pd.json_normalize(data['history'])[
+                           ['element', 'total_points', 'round']
+                            ].rename(
+                                columns={'round':'GW'}
+                            )
+
+      return(df)
+
+def initial_squad_tracker():
+
+     df = players()
+
+     initial_squad = ['Verbruggen', 'Leno',
+                      'Mitchell', 'Guéhi', 'Van Hecke', 'Tarkowski', 'N.Williams',
+                      'Szoboszlai', 'Rice', 'Anderson', 'Iwobi', 'Damsgaard',
+                      'Calvert-Lewin', 'Mateta', 'Welbeck'
+                      ]
+
+     initial_squad_pids = ['109', '250',
+                           '204', '388', '112', '229', '469',
+                           '368', '13', '481', '261', '96',
+                           '346', '223', '136'
+                           ]
+
+     df = {pid:points(pid) for pid in initial_squad_pids}
+     df = pd.concat(df.values(), ignore_index=True).merge(
+          players()[['PID', 'second_name']],
+          left_on = 'element',
+          right_on = 'PID'
+     )
+
+     tracker = df.groupby("GW", as_index=False)['total_points'].sum()
+
+     # pro-rate
+     tracker['pro_rata_points'] = tracker['total_points']*(12/15)
+
+     return(tracker)
 
 
-'''
-df.sort_values(
-    ['position_name', 'points_per_cost_2yr'], ascending=[True, False])[
-        ['first_name', 'second_name', 'team_name', 'position_name', 'now_cost', 'total_points', 'points_per_cost',
-         'points_2yr',
-         'points_per_cost_2yr']
-    ].to_csv(
-        "output/underpriced.csv")
-        
-     
-df['points_per_cost'] = df['total_points']/df['now_cost']
-
-
-#df['points_per_cost'].hist(bins=100)
-#plt.ylabel('Frequency')
-#plt.title('Histogram of col')
-#plt.show()
-
-(df[df['points_per_cost']>2]).sort_values(
-    ['position_name', 'points_per_cost'], ascending=[True, False])[
-        ['first_name', 'second_name', 'team_name', 'position_name', 'now_cost', 'total_points', 'points_per_cost']
-    ].to_csv(
-        "output/1yr_underpriced.csv")
-
-def load_element_summary(pid):
-    with open('data/element_summary/element_summary_'+str(pid)+'.json') as f:
-        r = json.load(f)
-    return(r)
-
-
-def last_2_yrs_points(pid):
-    pl = pd.json_normalize(load_element_summary(pid)['history_past'])
-    if 'season_name' in pl.columns:
-        recent_pl = pl[pl['season_name'] >= '2024/25']
-        last_2_year_points = recent_pl['total_points'].sum()
-        return(last_2_year_points)
-    else:
-        return(0)
-
-#print(last_2_yrs_points(53))
-
-#i = 0
-#for pid in pids:
-#    i+=1
-#    print(str(i) + " pid: " + str(pid) + " " + str(last_2_yrs_points(pid)))
-
-df['points_2yr'] = df['PID'].apply(last_2_yrs_points)
-df['points_per_cost_2yr'] = df['points_2yr'] / df['now_cost']
-
-df.sort_values(
-    ['position_name', 'points_per_cost_2yr'], ascending=[True, False])[
-        ['first_name', 'second_name', 'team_name', 'position_name', 'now_cost', 'total_points', 'points_per_cost',
-         'points_2yr',
-         'points_per_cost_2yr']
-    ].to_csv(
-        "output/underpriced.csv")
-        
-
-'''
+if __name__ == '__main__':
+     print("running...")
+     print(initial_squad_tracker())
+     print("complete")

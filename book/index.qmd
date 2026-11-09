@@ -2,9 +2,28 @@
 
 This is my journey of playing FPL with 0 ball knowledge and a bit of Python knowledge.
 
+::: {.panel-tabset}
+
+## Weekly
+
 ```{python}
 #| echo: false
 from fpl.points_tracker import points_tracker
 
-points_tracker(10)
+gw=10
+
+points_tracker(gw=gw)
 ```
+
+## Cumulative
+
+```{python}
+#| echo: false
+from fpl.points_tracker import points_tracker
+
+points_tracker(gw=gw, cumulative = True)
+```
+
+:::
+
+To counteract that I don't know who I would've captained in my initial squad each week, I'm including the bench. This seems roughly fair. If I can beat the initial 15 line, that feels like a win.

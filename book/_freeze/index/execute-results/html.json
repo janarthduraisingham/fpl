@@ -1,10 +1,10 @@
 {
-  "hash": "df1bcd50ca26632a3bdf0450aa9ce5c6",
+  "hash": "b04f1f309ea8fc2e576da9afe85b8f19",
   "result": {
     "engine": "jupyter",
-    "markdown": "# The Beautiful Game {.unnumbered}\n\nThis is my journey of playing FPL with 0 ball knowledge and a bit of Python knowledge.\n\n::: {#93ed281a .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=594 height=435}\n:::\n:::\n\n\n",
+    "markdown": "# The Beautiful Game {.unnumbered}\n\nThis is my journey of playing FPL with 0 ball knowledge and a bit of Python knowledge.\n\n::: {.panel-tabset}\n\n## Weekly\n\n::: {#fc4f0684 .cell execution_count=1}\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=594 height=435}\n:::\n:::\n\n\n## Cumulative\n\n::: {#c321bb7b .cell execution_count=2}\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-3-output-1.png){width=594 height=430}\n:::\n:::\n\n\n:::\n\nTo counteract that I don't know who I would've captained in my initial squad each week, I'm including the bench. This seems roughly fair. If I can beat the initial 15 line, that feels like a win.\n\n",
     "supporting": [
-      "index_files"
+      "index_files\\figure-html"
     ],
     "filters": [],
     "includes": {}
