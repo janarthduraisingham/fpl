@@ -26,8 +26,8 @@ Now we'll look at our team
 from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
 
 print(r[r['second_name'].isin(['Verbruggen',
-'Konsa',
-'Van Hecke',
+'Konsa Ngoyo',
+'van Hecke',
 'Tarkowski',
 'De Cuyper',
 'McGinn',
@@ -36,7 +36,7 @@ print(r[r['second_name'].isin(['Verbruggen',
 'Iwobi',
 'Calvert-Lewin',
 'Leno',
-'Evanilson',
+'de Lima Barbosa',
 'Damsgaard',
 'Kostoulas',
 'Mitchell'])].to_string(index=False))
