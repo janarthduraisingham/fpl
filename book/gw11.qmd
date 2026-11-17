@@ -26,8 +26,8 @@ Now we'll look at our team
 from fpl.ewmac import points_ts, ewmac_ts, ewmac_all
 
 print(r[r['second_name'].isin(['Verbruggen',
-'Mitchell',
-'Van Hecke',
+'Konsa Ngoyo',
+'van Hecke',
 'Tarkowski',
 'De Cuyper',
 'McGinn',
@@ -36,10 +36,94 @@ print(r[r['second_name'].isin(['Verbruggen',
 'Iwobi',
 'Calvert-Lewin',
 'Leno',
-'Junqueira de Jesus',
+'de Lima Barbosa',
 'Damsgaard',
 'Kostoulas',
-'Guéhi'])].to_string(index=False))
+'Mitchell'])].to_string(index=False))
 ```
 
-## Transfers TBC
+## Transfers
+
+### Forwards
+Kostoulas and Calvert-Lewin need to go, though I only have 2 transfers so I'll prioritise Calvert-Lewin, who has a harder game ahead.
+
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=138, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=346, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+Let's have a look at Jackson, Barry, and Isak
+
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=166, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=249, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=379, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+Happy to sell Calvert-Lewin for Jackson
+
+### Tarkowski out
+
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=229, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+Considering Gabriel and Vuskovic
+
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=4, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+```{python}
+#| echo: false
+from fpl.ewmac import points_ts, ewmac_ts
+
+r = ewmac_ts(pid=504, short_alpha=0.5, long_alpha=0.25)
+r['plot']
+```
+
+Both look good but I already have 3 Brighton players so happy to sell Tarkowski for Gabriel
+
+### Summary
+
+- Sell Calvert-Lewin for 6.0 and buy Jackson for 7.1
+- Sell Tarkwoski for 6.1 and buy Gabriel for 8.1
+
+Net cashflow of negative 4.1 for two transfers. Quite an expensive week but still leaves me with average of 0.5 per transfer for remaining GWs.
