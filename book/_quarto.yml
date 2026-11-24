@@ -16,6 +16,7 @@ book:
     - gw10.qmd
     - international_break.qmd
     - gw11.qmd
+    - gw12.qmd
 
 bibliography: references.bib
 
